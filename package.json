@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "portfolio angular app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abineshabi82/portfolio.git"
+  },
+  "author": "abinesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abineshabi82/portfolio/issues"
+  },
+  "homepage": "https://github.com/abineshabi82/portfolio#readme",
+  "dependencies": {
+    "@angular/cli": "^12.0.3"
+  }
+}
