@@ -1,0 +1,47 @@
+.flex{
+    display: flex;
+}
+.inline{
+    display: inline;
+}
+.block{
+    display: block;
+}
+.inline-block{
+    display: inline-block;
+}
+
+.fx-dir-row{
+    flex-direction: row;
+}
+.fx-dir-column{
+    flex-direction: column;
+}
+.fx-jus-center{
+    justify-content: center;
+}
+.fx-jus-start{
+    justify-content: start;
+}
+.fx-jus-end{
+    justify-content: end;
+}
+.fx-align-center{
+    align-items: center;
+}
+.fx-align-start{
+    align-items: start;
+}
+.fx-align-end{
+    align-items: end;
+}
+
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.fixed{
+    position: fixed;
+}

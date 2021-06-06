@@ -1,0 +1,24 @@
+@import "../assets/scss/variables";
+
+.app-container {
+    height: inherit;
+    .navbar {
+        top: 0;
+        width: 100%;
+        height: fit-content;
+        span {
+            margin: 1rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15%;
+            box-shadow: $btn-shadow;
+            &:hover {
+                box-shadow: $btn-shadow-active;
+            }
+            &.active {
+                background: #ffffff57;
+                color: rgb(53, 67, 75);
+                box-shadow: $btn-shadow-active;
+            }
+        }
+    }
+}
