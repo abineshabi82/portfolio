@@ -1,5 +1,5 @@
 {
-  "name": "portfolio",
+  "name":"portfolio",
   "version": "1.0.0",
   "description": "portfolio angular app",
   "main": "index.js",
