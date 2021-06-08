@@ -19,6 +19,23 @@
                 color: rgb(53, 67, 75);
                 box-shadow: $btn-shadow-active;
             }
+            @media (max-width: 576px) {
+                margin: 0.8rem;
+                margin-left: 0.4rem;
+                margin-right: 0.4rem;
+            }
         }
     }
 }
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }

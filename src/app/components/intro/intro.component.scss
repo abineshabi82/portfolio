@@ -1,3 +1,61 @@
-.intro-container{
-    background: linear-gradient(180deg, #7bb0c8 0%, #ACE5ff 70%, #7bb0c8 99%);
+.intro-container {
+    background: linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%);
+    & > div.flex {
+        height: 100%;
+    }
+    .intro-content {
+        // background: red;
+        height: fit-content;
+        line-height: 80px;
+        margin: 70px;
+        h1{
+            line-height: 35px;
+            margin-bottom: 10px;
+        }
+        h4{
+            line-height: 20px;
+        }
+        @media (max-width: 768px) {
+            width: 80%;
+            text-align: center;
+        }
+    }
+    .intro-img {
+        background-image: url(../../../assets/images/illusration.png);
+        background-position: center center;
+        background-size: 150% auto;
+        background-repeat: no-repeat;
+        filter: drop-shadow(5px 5px 6px black);
+        border-radius: 52%;
+        color: rgba(255, 255, 255, 1);
+        margin-bottom: 4rem;
+        margin-right: 2rem;
+        min-width: 410px;
+        // box-shadow: 2px 3px 5px black;
+    }
+    @media (max-width: 768px) {
+        .flex {
+            flex-direction: column-reverse;
+            .intro-img {
+                margin-right: 0rem;
+                width: 60vw;
+                min-height: 60vh;
+                min-width: 340px;
+                background-size: 120% auto;
+                margin-bottom: -2rem;
+            }
+        }
+    }
 }
+
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) { ... }
+
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) { ... }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) { ... }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) { ... }
