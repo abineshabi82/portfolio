@@ -8,11 +8,11 @@
         height: fit-content;
         line-height: 80px;
         margin: 70px;
-        h1{
+        h1 {
             line-height: 35px;
             margin-bottom: 10px;
         }
-        h4{
+        h4 {
             line-height: 20px;
         }
         @media (max-width: 768px) {
@@ -20,29 +20,64 @@
             text-align: center;
         }
     }
-    .intro-img {
-        background-image: url(../../../assets/images/illusration.png);
-        background-position: center center;
-        background-size: 150% auto;
-        background-repeat: no-repeat;
-        filter: drop-shadow(5px 5px 6px black);
-        border-radius: 52%;
-        color: rgba(255, 255, 255, 1);
+    .col-4 {
         margin-bottom: 4rem;
         margin-right: 2rem;
-        min-width: 410px;
-        // box-shadow: 2px 3px 5px black;
+        min-width: 430px;
+        max-width: 556px;
+    }
+    .intro-img {
+        position: absolute;
+        background-position: center center;
+        background-size: 140% auto;
+        background-repeat: no-repeat;
+        filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.726));
+        border-radius: 50%;
+        color: white;
+        min-width: 465px;
+        margin-top: 20px;
+        max-height: 90%;
+    }
+    .a {
+        background-image: url(../../../assets/images/1.png);
+    }
+    .b {
+        background-image: url(../../../assets/images/2.png);
+        filter: drop-shadow(0px 0px 2px white) drop-shadow(0px -2px 2px white) brightness(2);
+        transform: translate(0px,0px);
+    }
+    .c {
+        background-image: url(../../../assets/images/3.png);
+    }
+    .d {
+        background-image: url(../../../assets/images/4.png);
+    }
+    .e {
+        background-image: url(../../../assets/images/5.png);
     }
     @media (max-width: 768px) {
         .flex {
             flex-direction: column-reverse;
             .intro-img {
-                margin-right: 0rem;
-                width: 60vw;
-                min-height: 60vh;
-                min-width: 340px;
-                background-size: 120% auto;
-                margin-bottom: -2rem;
+                min-height: 110%;
+                min-width: 100%;
+                background-size: 100% auto;
+                background-position: center 80%;
+                margin: 0;
+            }
+            .col-4 {
+                position: relative;
+                margin-bottom: 0rem;
+                margin-right: 0;
+                margin-top: 2rem;
+            }
+        }
+    }
+    @media (max-width: 466px) {
+        .flex {
+            .intro-img {
+                background-size: 95% auto;
+                background-position: center 60%;
             }
         }
     }
