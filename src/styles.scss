@@ -19,6 +19,7 @@ body{
             height: calc(100% - 60px);
             @media (max-width:576px) {
                 width: fit-content;
+                height: inherit;
             }
         }
     }

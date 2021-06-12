@@ -25,6 +25,10 @@
         margin-right: 2rem;
         min-width: 430px;
         max-width: 556px;
+        &:hover .options{
+            opacity: 1;
+            transform: translate(0,10px);
+        }
     }
     .intro-img {
         position: absolute;
@@ -44,16 +48,40 @@
     .b {
         background-image: url(../../../assets/images/2.png);
         filter: drop-shadow(0px 0px 2px white) drop-shadow(0px -2px 2px white) brightness(2);
-        transform: translate(0px,0px);
+        transform: translate(0px, 0px);
     }
     .c {
         background-image: url(../../../assets/images/3.png);
     }
     .d {
         background-image: url(../../../assets/images/4.png);
+        filter: drop-shadow(2px 1px 1px rgba(0, 0, 0, 0.842));
+        transition: all .3s;
     }
     .e {
         background-image: url(../../../assets/images/5.png);
+        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.842));
+        transition: all .3s;
+    }
+    .options {
+        opacity: 0;
+        transform: translate(0,0);
+        height: fit-content;
+        margin-top: 10%;
+        right: 100px;
+        transition: opacity .5s,transform .7s;
+        .option {
+            transform: scale(1);
+            box-shadow: 0px 1px 3px #000000c5;
+            border-radius: 50%;
+            margin: 10px 0px;
+            background: #fefefe8a;
+            transition: transform .3s,box-shadow .3s;
+            &:hover{
+                transform: scale(1.1);
+                box-shadow: 1px 1px 3px #000000be;
+            }
+        }
     }
     @media (max-width: 768px) {
         .flex {
@@ -72,12 +100,25 @@
                 margin-top: 2rem;
             }
         }
+        .options{
+            right: 50px;
+        }
     }
     @media (max-width: 466px) {
         .flex {
             .intro-img {
                 background-size: 95% auto;
                 background-position: center 60%;
+            }
+            .col-4 {
+                min-width: 100%;
+            }
+        }
+    }
+    @media (max-height: 640px) and (max-width: 768px) {
+        .flex {
+            .col-4 {
+                min-height: 50%;
             }
         }
     }

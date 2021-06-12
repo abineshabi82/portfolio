@@ -14,26 +14,32 @@
 .fx-dir-row{
     flex-direction: row;
 }
+.fx-dir-row-rev{
+    flex-direction: row-reverse;
+}
 .fx-dir-column{
     flex-direction: column;
+}
+.fx-dir-column-rev{
+    flex-direction: column-reverse;
 }
 .fx-jus-center{
     justify-content: center;
 }
 .fx-jus-start{
-    justify-content: start;
+    justify-content: flex-start;
 }
 .fx-jus-end{
-    justify-content: end;
+    justify-content: flex-end;
 }
 .fx-align-center{
     align-items: center;
 }
 .fx-align-start{
-    align-items: start;
+    align-items: flex-start;
 }
 .fx-align-end{
-    align-items: end;
+    align-items: flex-end;
 }
 
 .relative{
