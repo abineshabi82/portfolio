@@ -1,3 +1,50 @@
 .exp-container {
     background: linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%);
+    // border: solid;
+    height: fit-content;
+    // & * {
+    //     border: solid;
+    // }
+    .exp-content {
+        width: 60%;
+        height: 100%;
+        & h1,
+        & h4 {
+            height: fit-content;
+            margin: 1rem;
+        }
+    }
+    .exp-img {
+        position: relative;
+        width: 40%;
+        height: 100%;
+        .img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            background-position: center center;
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.726));
+        }
+    }
+    .chair {
+        background: url(./../../../assets/images/exppic/echair.png);
+    }
+    .body {
+        background: url(../../../assets/images/exppic/ebody.png);
+    }
+    .head {
+        background: url(../../../assets/images/exppic/eface.png);
+    }
+    .lhand {
+        background: url(../../../assets/images/exppic/ehandleft.png);
+    }
+    .rhand {
+        background: url(../../../assets/images/exppic/ehandright.png);
+    }
+    .lap {
+        background: url(../../../assets/images/exppic/elaptop.png);
+    }
 }

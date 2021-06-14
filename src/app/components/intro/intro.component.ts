@@ -1,21 +1,51 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit,OnDestroy } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { debounceTime ,filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-intro',
   templateUrl: './intro.component.html',
   styleUrls: ['./intro.component.scss']
 })
-export class IntroComponent implements OnInit,AfterViewInit {
-   public container:any=null;
-   public eye:any=null;
+export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
+  private container:any=null;
+  private eye:any=null;
+  private introContent:any=null;
+  private introImg:any=null;
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit(): void {
-
+    this.introContent=document.querySelector('.intro-container .intro-content');
+    this.introImg=document.querySelector('.intro-container .col-4');
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit(){      
+    //FOR SLIDELEFT AND DISAPPEAR
+    let flag=0;
+    this.router.events.subscribe(x=>{
+      if(x instanceof NavigationStart && flag==0){
+        flag=1;
+        let route=x.url.slice(1);
+        this.router.navigate(['intro']);
+        let containermain:any=document.querySelector('.intro-container');
+        let nav:any=document.querySelector('.navbar');
+        this.introContent.style.animation="final-disappear .5s ease-in forwards";
+        setTimeout(()=>{
+          this.introImg.style.animation="final-disappear .5s ease-in forwards";
+          nav.style.zIndex=1;
+        },300);
+        setTimeout(()=>{
+          containermain.classList.add('slide-left');
+        },800);
+        setTimeout(()=>{
+            this.router.navigate([route]);
+            nav.style.zIndex=0;
+        },1800);
+      }
+    });
+
+
     this.container=document.querySelector('.intro-container .col-4');
      console.log(this.container.offsetWidth);
     let width=this.container.offsetWidth;
@@ -45,8 +75,12 @@ export class IntroComponent implements OnInit,AfterViewInit {
     this.container.addEventListener('mouseout',()=>{
       this.eye.style.transition="all .1s ease";
       this.eye.style.transform="translate(0,0)";
-      
     });
+
+    
+  }
+
+  ngOnDestroy(){
   }
 
   toggleMustag():void{
@@ -81,3 +115,4 @@ export class IntroComponent implements OnInit,AfterViewInit {
   }
 
 }
+

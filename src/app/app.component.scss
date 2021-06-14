@@ -26,6 +26,65 @@
             }
         }
     }
+
+    .footer {
+        height: fit-content;
+        bottom: 0;
+        width: calc(100% - 100px);
+        margin: 20px 50px;
+        perspective: 800px;
+
+        .contact {
+            position: relative;
+            border-radius: 8%;
+            padding: 5px 10px;
+            font-weight: 700;
+            line-height: 10px;
+            box-shadow: 2px 1px 3px black;
+            transition: width 1s;
+            width: 125px;
+            height: 10px;
+            padding: 10px;
+            transition: transform 1s;
+            overflow: hidden;
+            &:hover {
+                transform: rotateX(180deg);
+            }
+            &:hover .social {
+                z-index: 2;
+                transform: rotateZ(180deg) rotateY(180deg);
+            }
+            span {
+                margin: 0 5px;
+                position: relative;
+                &.text,
+                &.social {
+                    position: absolute;
+                    top: 0;
+                    left: -5px;
+                    width: 100%; //165px;
+                    height: 100%; //20px;
+                    line-height: 30px;
+                    background: #ffffff;
+                    transition: z-index 1s, transform 1s;
+                    span:hover {
+                        filter: drop-shadow(0.5px 0.5px 2px rgba(50, 147, 226, 0.63)) brightness(10);
+                    }
+                }
+                &.social {
+                    line-height: 45px;
+                }
+            }
+            .text {
+                z-index: 2;
+                text-align: center;
+                line-height: 20px;
+            }
+            .social {
+                z-index: 1;
+            }
+        }
+    }
 }
 
 // // Small devices (landscape phones, 576px and up)
