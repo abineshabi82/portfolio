@@ -27,6 +27,14 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
       if(x instanceof NavigationStart && flag==0){
         flag=1;
         let route=x.url.slice(1);
+        let body:any=document.querySelector('body');
+        if(route=="exp"){
+          body.style.background="linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
+        }else if(route=="skill"){
+          body.style.background="linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
+        }else if(route=="work"){
+          body.style.background="linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
+        }
         this.router.navigate(['intro']);
         let containermain:any=document.querySelector('.intro-container');
         let nav:any=document.querySelector('.navbar');
@@ -46,6 +54,7 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
     });
 
 
+    //FOR EYE MOVEMENT RESPONSIVE
     this.container=document.querySelector('.intro-container .col-4');
      console.log(this.container.offsetWidth);
     let width=this.container.offsetWidth;

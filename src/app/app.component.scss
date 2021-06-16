@@ -2,6 +2,7 @@
 
 .app-container {
     height: inherit;
+    position: relative;
     .navbar {
         top: 0;
         width: 100%;
@@ -84,6 +85,9 @@
                 z-index: 1;
             }
         }
+    }
+    @media (max-width: 768px) { 
+        height: 100%;
     }
 }
 
