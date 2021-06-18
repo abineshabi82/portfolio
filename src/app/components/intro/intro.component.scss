@@ -108,6 +108,7 @@
             right: 50px;
         }
     }
+    
     @media (max-width: 466px) {
         .flex {
             .intro-img {
@@ -119,7 +120,14 @@
             }
         }
     }
-    @media (max-height: 640px) and (max-width: 768px) {
+    @media (max-height:635px){
+        .flex{
+            .intro-img{
+                background-size: 65vh auto;
+            }
+        }
+    }
+    @media (max-width: 768px) {
         .flex {
             .col-4 {
                 min-height: 50vh;
