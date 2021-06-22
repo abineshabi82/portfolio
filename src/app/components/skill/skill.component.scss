@@ -1,3 +1,144 @@
 .skill-container {
     background: linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%);
+    // border: solid;
+    background-attachment: fixed;
+    // * {
+    //     border: solid;
+    // }
+    .flex {
+        height: inherit;
+    }
+    .skill-image {
+        position: relative;
+        width: 40%;
+        height: 100%;
+        overflow: hidden;
+        // padding: 15px 0;
+        div.img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background-position: center center;
+            background-size: calc(95vh - 105px) auto;
+            background-repeat: no-repeat;
+            filter: drop-shadow(3px 4px 3px rgba(0, 0, 0, 0.726));
+        }
+        .head {
+            opacity: 0;
+            background: url(../../../assets/images/hammerart/head.png);
+            transform-origin: center 30%;
+            animation: init-char-appear 1s .8s forwards;//head-move ease-in 2s 2s reverse
+        }
+        .dress {
+            opacity: 0;
+            background: url(../../../assets/images/hammerart/dress.png);
+            animation: init-char-appear 1s .8s forwards;
+        }
+        .pant {
+            opacity: 0;
+            background: url(../../../assets/images/hammerart/pant.png);
+            animation: init-char-appear 1s .8s forwards;
+        }
+        .lhand {
+            background: url(../../../assets/images/hammerart/lhand.png);
+            transform-origin: 47% 35%;
+            opacity: 0;
+            animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
+            // animation: hit-target ease-in 2s 2s forwards; //cubic-bezier(0.4, 0, 1, 1)
+        }
+        .rhand {
+            background: url(../../../assets/images/hammerart/rhand.png);
+            transform-origin: 47% 35%;
+            opacity: 0;
+            animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
+            // animation: hit-target ease-in 2s 2s forwards;
+        }
+        .hammer {
+            background: url(../../../assets/images/hammerart/hammer.png);
+            transform-origin: 47% 35%;
+            transform: translate(-45%, 5%) rotateZ(50deg) scale(2);
+            animation: hammer 2s forwards, hit-target ease-in 2s 2.1s forwards;
+            // animation: hit-target ease-in 2s 2s forwards;
+        }
+        .hittertop{
+            opacity: 0;
+            background: url(../../../assets/images/hammerart/hittertop.png);
+            transform: translateX(10px);
+            animation: hitterappear 1s .8s forwards, hittertop 1s 4s linear forwards;
+        }
+        .hitterbottom{
+            opacity: 0;
+            background: url(../../../assets/images/hammerart/hitterbottom.png);
+            transform: translateX(10px);
+            filter: drop-shadow(0px 3px 3px black) !important;
+            animation: hitterappear 1s .8s forwards;
+        }
+    }
+    .skill-content {
+        width: 60%;
+        height: 100%;
+    }
+}
+
+@keyframes hit-target {
+    from {
+        transform: rotateZ(0deg);
+    }
+    45%{
+        transform: rotateZ(-65deg);
+    }
+    95% {
+        transform: rotateZ(100deg);
+    }
+    to {
+        transform: rotateZ(70deg);
+        transform-origin: 47% 35%;
+    }
+}
+@keyframes head-move {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(10deg);
+    }
+}
+@keyframes hammer {
+    from {
+        transform: translate(-45%, 5%) rotateZ(50deg) scale(2);
+    }
+    to {
+        transform: translate(0,0) rotateZ(0) scale(1);
+    }
+}
+@keyframes init-char-appear {
+    from{
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes hitterappear {
+    from{
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(10px);
+    }
+}
+@keyframes hittertop {
+    from{
+        transform: translateX(10px) translateY(0);
+    }
+    10%{
+        transform: translateX(10px) translateY(11px);
+    }
+    to{
+        transform:translateX(10px) translateY(0px);
+    }
 }
