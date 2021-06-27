@@ -1,0 +1,54 @@
+// * {
+//     border: solid;
+// }
+.skill-level {
+    .level {
+        span {
+        }
+    }
+}
+.chart-skills {
+    .chart-area {
+        .bar {
+            min-width: 9%;
+            margin: 0 3%;
+        }
+        .html {
+            height: 70%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s;
+        }
+        .css {
+            height: 90%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 0.5s;
+        }
+        .js {
+            height: 75%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 1s;
+        }
+        .java {
+            height: 50%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 1.5s;
+        }
+        // .node-js {
+        //     height: 40%;
+        //     transform: scaleY(0);
+        //     transform-origin: center bottom;
+        //     transition: transform 2s 2s;
+        // }
+    }
+    .skills {
+        .skill {
+            margin: -2% 3%;
+            min-width: 9%;
+            max-width: 9%;
+        }
+    }
+}

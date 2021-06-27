@@ -1,0 +1,42 @@
+// * {
+//     border: solid;
+// }
+div.icon-container {
+    padding-top: 0;
+    width: 100%;
+    .icons {
+        height: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            filter: drop-shadow(2px 2px 2px black);
+        }
+    }
+    .icon-animation {
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        h2{
+            height: 10%;
+            font-weight: 300;
+        }
+        img {
+            filter: drop-shadow(2px 2px 2px black);
+            animation: click 1s infinite;
+        }
+    }
+}
+@keyframes click {
+    from{
+        transform: translateY(10px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    to{
+        transform: translateY(10px);
+    }
+}

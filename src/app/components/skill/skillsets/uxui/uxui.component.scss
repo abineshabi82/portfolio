@@ -1,0 +1,40 @@
+// * {
+//     border: solid;
+// }
+.skill-level {
+    .level {
+    }
+}
+.chart-skills {
+    .chart-area {
+        .bar {
+            min-width: 9%;
+            margin: 0 3%;
+        }
+        .figma {
+            height: 45%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s;
+        }
+        .blender2d {
+            height: 35%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s;
+        }
+        .blender3d {
+            height: 25%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s;
+        }
+    }
+    .skills {
+        .skill {
+            margin: -2% 3%;
+            min-width: 9%;
+            max-width: 9%;
+        }
+    }
+}

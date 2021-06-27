@@ -16,6 +16,18 @@
             <img class="img hammer rotate" src="../../../assets/images/hammerart/hammer.png" alt="hammer" />
             <img class="img rhand rotate" src="../../../assets/images/hammerart/rhand.png" alt="right hand" /> -->
         </div>
-        <div class="skill-content"></div>
+        <div class="skill-content">
+            <div class="chart">
+                <app-default *ngIf="chart=='default'"></app-default>
+                 <app-scriptprogram *ngIf="chart=='scriptprogram'"></app-scriptprogram>
+                 <app-frameworklibrary *ngIf="chart=='frameworklibrary'"></app-frameworklibrary>
+                 <app-uxui *ngIf="chart=='uxui'"></app-uxui>
+            </div>
+            <div class="skillsets">
+                <input class="skill-item" [class.active]="chart=='scriptprogram'" type="button" (click)="changeChart('scriptprogram')" value="scripting & programming" />
+                <input class="skill-item" [class.active]="chart=='uxui'" type="button" (click)="changeChart('uxui')" value="ux/ui" />
+                <input class="skill-item" [class.active]="chart=='frameworklibrary'" type="button" (click)="changeChart('frameworklibrary')" value="framework & library" />
+            </div>
+        </div>
     </div>
 </div>

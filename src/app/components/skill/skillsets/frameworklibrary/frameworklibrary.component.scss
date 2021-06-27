@@ -1,0 +1,59 @@
+@import '../../../../../assets/scss/utility';
+// *{
+//     border: solid;
+// }
+.skill-level{
+    .level{
+    }
+}
+.chart-skills{
+    .chart-area{
+        .bar{
+            min-width: 9%;
+            margin: 0 3%;
+        }
+        .angular {
+            height: 80%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s;
+        }
+        .react {
+            height: 60%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 0.5s;
+        }
+        .node {
+            height: 40%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 0.5s;
+        }
+        .spring {
+            height: 55%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 1s;
+        }
+        .sass {
+            height: 75%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 1s;
+        }
+        .bootstrap {
+            height: 60%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s 1s;
+        }
+    }
+    .skills{
+        .skill{
+            margin: -2% 3%;
+            min-width: 9%;
+            max-width: 9%;
+        }
+    }
+}

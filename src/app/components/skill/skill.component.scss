@@ -1,3 +1,5 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/utility";
 .skill-container {
     background: linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%);
     // border: solid;
@@ -13,6 +15,7 @@
         width: 40%;
         height: 100%;
         overflow: hidden;
+        animation: init-appear 1s;
         // padding: 15px 0;
         div.img {
             position: absolute;
@@ -27,56 +30,94 @@
             opacity: 0;
             background: url(../../../assets/images/hammerart/head.png);
             transform-origin: center 30%;
-            animation: init-char-appear 1s .8s forwards;//head-move ease-in 2s 2s reverse
+            // animation: init-char-appear 1s .8s forwards;
         }
         .dress {
             opacity: 0;
             background: url(../../../assets/images/hammerart/dress.png);
-            animation: init-char-appear 1s .8s forwards;
+            // animation: init-char-appear 1s .8s forwards;
         }
         .pant {
             opacity: 0;
             background: url(../../../assets/images/hammerart/pant.png);
-            animation: init-char-appear 1s .8s forwards;
+            // animation: init-char-appear 1s .8s forwards;
         }
         .lhand {
             background: url(../../../assets/images/hammerart/lhand.png);
             transform-origin: 47% 35%;
             opacity: 0;
-            animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
-            // animation: hit-target ease-in 2s 2s forwards; //cubic-bezier(0.4, 0, 1, 1)
+            // animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
         }
         .rhand {
             background: url(../../../assets/images/hammerart/rhand.png);
             transform-origin: 47% 35%;
             opacity: 0;
-            animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
-            // animation: hit-target ease-in 2s 2s forwards;
+            // animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
         }
         .hammer {
             background: url(../../../assets/images/hammerart/hammer.png);
             transform-origin: 47% 35%;
             transform: translate(-45%, 5%) rotateZ(50deg) scale(2);
-            animation: hammer 2s forwards, hit-target ease-in 2s 2.1s forwards;
-            // animation: hit-target ease-in 2s 2s forwards;
+            // animation: hammer 2s forwards, hit-target ease-in 2s 2.1s forwards;
         }
-        .hittertop{
+        .hittertop {
             opacity: 0;
             background: url(../../../assets/images/hammerart/hittertop.png);
             transform: translateX(10px);
-            animation: hitterappear 1s .8s forwards, hittertop 1s 4s linear forwards;
+            // animation: hitterappear 1s .8s forwards, hittertop 1s 4s linear forwards;
         }
-        .hitterbottom{
+        .hitterbottom {
             opacity: 0;
             background: url(../../../assets/images/hammerart/hitterbottom.png);
             transform: translateX(10px);
             filter: drop-shadow(0px 3px 3px black) !important;
-            animation: hitterappear 1s .8s forwards;
+            // animation: hitterappear 1s .8s forwards;
         }
     }
     .skill-content {
         width: 60%;
         height: 100%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        opacity: 0;
+        animation: init-appear 1s 0.5s forwards;
+        .chart {
+            width: 100%;
+            height: 85%;
+            display: flex;
+            app-scriptprogram,
+            app-frameworklibrary,
+            app-uxui,
+            app-default {
+                display: flex;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .skillsets {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+            height: 15%;
+            .skill-item {
+                margin: 1rem 1rem;
+                padding: 1rem;
+                line-height: 0;
+                border-radius: 10px;
+                border: navajowhite;
+                background: transparent;
+                box-shadow: $btn-shadow;
+                &:hover {
+                    box-shadow: $btn-shadow-active;
+                }
+                &:focus,&:vertical{
+                    background-color: #ffffff57;
+                }
+            }
+        }
     }
 }
 
@@ -84,7 +125,7 @@
     from {
         transform: rotateZ(0deg);
     }
-    45%{
+    45% {
         transform: rotateZ(-65deg);
     }
     95% {
@@ -100,7 +141,7 @@
         transform: rotateZ(0deg);
     }
     to {
-        transform: rotateZ(10deg);
+        transform: rotateZ(-10deg);
     }
 }
 @keyframes hammer {
@@ -108,37 +149,75 @@
         transform: translate(-45%, 5%) rotateZ(50deg) scale(2);
     }
     to {
-        transform: translate(0,0) rotateZ(0) scale(1);
+        transform: translate(0, 0) rotateZ(0) scale(1);
+    }
+}
+@keyframes hammer-move-to-init {
+    from {
+        transform: translate(0, 0) rotateZ(70deg) scale(1);
+    }
+    to {
+        transform: translate(-45%, 5%) rotateZ(50deg) scale(2);
     }
 }
 @keyframes init-char-appear {
-    from{
+    from {
         opacity: 0;
         transform: translateX(-10%);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateX(0%);
     }
 }
+@keyframes hand-disappear {
+    from {
+        opacity: 1;
+        transform: translateX(0%) rotateZ(70deg);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-10%) rotateZ(70deg);
+    }
+}
+@keyframes final-char-disappear {
+    from {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+}
 @keyframes hitterappear {
-    from{
+    from {
         opacity: 0;
         transform: translateX(20px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateX(10px);
     }
 }
+@keyframes hitterdisappear {
+    from {
+        opacity: 1;
+        transform: translateX(10px);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
 @keyframes hittertop {
-    from{
+    from {
         transform: translateX(10px) translateY(0);
     }
-    10%{
+    10% {
         transform: translateX(10px) translateY(11px);
     }
-    to{
-        transform:translateX(10px) translateY(0px);
+    to {
+        transform: translateX(10px) translateY(0px);
     }
 }

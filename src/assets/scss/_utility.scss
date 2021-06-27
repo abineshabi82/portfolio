@@ -1,93 +1,166 @@
-.flex{
+@import './variables';
+.flex {
     display: flex;
 }
-.inline{
+.inline {
     display: inline;
 }
-.block{
+.block {
     display: block;
 }
-.inline-block{
+.inline-block {
     display: inline-block;
 }
 
-.fx-dir-row{
+.fx-dir-row {
     flex-direction: row;
 }
-.fx-dir-row-rev{
+.fx-dir-row-rev {
     flex-direction: row-reverse;
 }
-.fx-dir-column{
+.fx-dir-column {
     flex-direction: column;
 }
-.fx-dir-column-rev{
+.fx-dir-column-rev {
     flex-direction: column-reverse;
 }
-.fx-jus-center{
+.fx-jus-center {
     justify-content: center;
 }
-.fx-jus-start{
+.fx-jus-start {
     justify-content: flex-start;
 }
-.fx-jus-end{
+.fx-jus-end {
     justify-content: flex-end;
 }
-.fx-align-center{
+.fx-align-center {
     align-items: center;
 }
-.fx-align-start{
+.fx-align-start {
     align-items: flex-start;
 }
-.fx-align-end{
+.fx-align-end {
     align-items: flex-end;
 }
 
-.relative{
+.relative {
     position: relative;
 }
-.absolute{
+.absolute {
     position: absolute;
 }
-.fixed{
+.fixed {
     position: fixed;
 }
 
-.col-6{
+.col-6 {
     width: 60%;
 }
-.col-4{
+.col-4 {
     width: 40%;
 }
 
+.active {
+    background: #ffffff57 !important;
+    color: rgb(53, 67, 75);
+    box-shadow: $btn-shadow-active !important;
+}
 
 @keyframes init-appear {
-    from{
+    from {
         opacity: 0;
         transform: translateY(-10px);
     }
-    to{
+    to {
         opacity: 1;
         transform: translateY(0px);
     }
 }
 @keyframes final-disappear {
-    from{
+    from {
         opacity: 1;
         transform: translateY(0px);
     }
-    to{
+    to {
         opacity: 0;
         transform: translateY(-50px);
     }
 }
-.slide-left{
+.slide-left {
     animation: slide-left 1s ease forwards, all 1s ease forwards;
 }
 @keyframes slide-left {
-    from{
-        transform: translate(0%,0%);
+    from {
+        transform: translate(0%, 0%);
     }
-    to{
-        transform: translate(-100%,0%);
+    to {
+        transform: translate(-100%, 0%);
+    }
+}
+
+.skill-level {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    animation: init-appear 1s;
+    .level {
+        height: 20%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        span {
+            box-shadow: 1px 1px 2px;
+            border-radius: 3px;
+            padding: 5px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            line-height: 1.4;
+            border-bottom-style: outset;
+            left: 10px;
+            position: relative;
+        }
+    }
+}
+
+.chart-skills {
+    width: 90%;
+    height: 100%;
+    animation: init-appear 1s;
+    .chart-area {
+        height: 90%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        .bar {
+            min-width: 5%;
+            margin: 0 5%;
+            border-radius: 15px 15px 0 0;
+            border: none;
+            box-shadow: 2px 1px 4px;
+            background-color: #96e1bf;
+        }
+    }
+    .skills {
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        .skill {
+            margin: -2% 5%;
+            min-width: 5%;
+            max-width: 5%;
+            overflow: hidden;
+            border: none;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-align: center;
+            padding-top: 1rem;
+            box-shadow: 2px 1px 3px 0px;
+            border-radius: 15px;
+            line-height: 0;
+            position: relative;
+            background-color: #bcffdc;
+            height: 30%;
+        }
     }
 }

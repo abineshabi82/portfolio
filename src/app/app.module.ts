@@ -7,6 +7,10 @@ import { IntroComponent } from './components/intro/intro.component';
 import { ExpComponent } from './components/exp/exp.component';
 import { SkillComponent } from './components/skill/skill.component';
 import { WorkComponent } from './components/work/work.component';
+import { ScriptprogramComponent } from './components/skill/skillsets/scriptprogram/scriptprogram.component';
+import { DefaultComponent } from './components/skill/skillsets/default/default.component';
+import { UxuiComponent } from './components/skill/skillsets/uxui/uxui.component';
+import { FrameworklibraryComponent } from './components/skill/skillsets/frameworklibrary/frameworklibrary.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { WorkComponent } from './components/work/work.component';
     IntroComponent,
     ExpComponent,
     SkillComponent,
-    WorkComponent
+    WorkComponent,
+    ScriptprogramComponent,
+    DefaultComponent,
+    UxuiComponent,
+    FrameworklibraryComponent
   ],
   imports: [
     BrowserModule,
