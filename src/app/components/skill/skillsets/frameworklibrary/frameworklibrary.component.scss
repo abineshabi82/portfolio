@@ -11,6 +11,13 @@
         .bar{
             min-width: 9%;
             margin: 0 3%;
+            @media (max-width:460px) and (min-width:350px) {
+                margin: 0 1.5%;
+            }
+            @media (max-width:350px) {
+                margin: 0 2%;
+                min-width: 8%;
+            }
         }
         .angular {
             height: 80%;
@@ -54,6 +61,14 @@
             margin: -2% 3%;
             min-width: 9%;
             max-width: 9%;
+            @media (max-width:460px) and (min-width:350px) {
+                margin: -2% 1.5%;
+            }
+            @media (max-width:350px) {
+                margin: -2% 2%;
+                min-width: 8%;
+                max-width: 8%;
+            }
         }
     }
 }

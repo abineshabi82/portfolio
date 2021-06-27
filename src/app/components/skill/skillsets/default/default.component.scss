@@ -11,6 +11,8 @@ div.icon-container {
         align-items: center;
         img {
             filter: drop-shadow(2px 2px 2px black);
+            width: 20%;
+            height: auto;
         }
     }
     .icon-animation {
@@ -25,6 +27,8 @@ div.icon-container {
         }
         img {
             filter: drop-shadow(2px 2px 2px black);
+            width: 10%;
+            height: auto;
             animation: click 1s infinite;
         }
     }

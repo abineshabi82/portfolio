@@ -14,17 +14,22 @@
             box-shadow: $btn-shadow;
             &:hover {
                 box-shadow: $btn-shadow-active;
+                cursor: pointer;
             }
             &.active {
                 background: #ffffff57;
                 color: rgb(53, 67, 75);
                 box-shadow: $btn-shadow-active;
             }
-            @media (max-width: 576px) {
-                margin: 0.8rem;
-                margin-left: 0.4rem;
-                margin-right: 0.4rem;
+            @media (max-width: 992px) { 
+                font-size: 1.5rem;
             }
+            @media (max-width: 576px) {
+                // margin: 0.8rem;
+                // margin-left: 0.4rem;
+                // margin-right: 0.4rem;
+            }
+            
         }
     }
 
@@ -69,6 +74,7 @@
                     background: #ffffff;
                     transition: z-index 1s, transform 1s;
                     span:hover {
+                        cursor: pointer;
                         filter: drop-shadow(0.5px 0.5px 2px rgba(50, 147, 226, 0.63)) brightness(10);
                     }
                 }
