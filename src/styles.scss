@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     height: inherit;
+    scroll-behavior: smooth;
 }
 
 html{
@@ -15,14 +16,12 @@ html{
         font-size: 10px;
     }
     @media (max-width: 768px) { 
-        
         height: fit-content;
     }
     @media (max-width:570px) {
         font-size: 10px;
         height: fit-content;
     }
-    
     @media (max-width:350px) {
          font-size: 8px;       
     }
