@@ -1,5 +1,6 @@
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-work',
@@ -7,13 +8,18 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
   styleUrls: ['./work.component.scss']
 })
 export class WorkComponent implements OnInit, AfterViewInit {
+  private workContent:any=null;
+  private workImg:any=null;
+  
   private portfolio: any;
   private anime: any;
   private covid: any;
-  constructor() {
+  constructor(public router:Router) {
   }
 
   ngOnInit(): void {
+    this.workContent=document.querySelector('.work-container .work-desc');
+    this.workImg=document.querySelector('.work-container .work-img');
   }
 
   isInViewport(element: any) {
@@ -24,7 +30,8 @@ export class WorkComponent implements OnInit, AfterViewInit {
     return (rect.top/2 >= 0 && rect.left >= 0 && rect.bottom-(windowHeight/2) <= windowHeight && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
   }
 
-  ngAfterViewInit() {
+  //Image and Content fade in and out
+  fadeInOut(){
     this.portfolio = document.querySelector('.portfolio');
     let pFlagOut = true;
     this.anime = document.querySelector('.anime-stream');
@@ -101,4 +108,44 @@ export class WorkComponent implements OnInit, AfterViewInit {
       
     });
   }
+
+  slideLeftDisappear(){
+    let flag=0;
+    this.router.events.subscribe(x=>{
+      if(x instanceof NavigationStart && flag==0){
+        flag=1;
+        let route=x.url.slice(1);
+        let body:any=document.querySelector('body');
+        if(route=="exp"){
+          body.style.background="linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
+        }else if(route=="intro"){
+          body.style.background="linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
+        }else if(route=="skill"){
+          body.style.background="linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
+        }
+        this.router.navigate(['work']);
+        let containermain:any=document.querySelector('.work-container');
+        let nav:any=document.querySelector('.navbar');
+        this.workContent.style.animation="final-disappear .5s ease-in forwards";
+        setTimeout(()=>{
+          this.workImg.style.animation="final-disappear .5s ease-in forwards";
+          nav.style.zIndex=1;
+        },300);
+        setTimeout(()=>{
+          containermain.classList.add('slide-left');
+        },800);
+        setTimeout(()=>{
+            this.router.navigate([route]);
+            nav.style.zIndex=2;
+        },1800);
+      }
+    });
+  }
+
+  ngAfterViewInit() {
+    this.slideLeftDisappear();
+    this.fadeInOut();
+  }
+
+
 }

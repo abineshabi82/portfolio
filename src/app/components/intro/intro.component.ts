@@ -48,7 +48,7 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
         },800);
         setTimeout(()=>{
             this.router.navigate([route]);
-            nav.style.zIndex=0;
+            nav.style.zIndex=2;
         },1800);
       }
     });

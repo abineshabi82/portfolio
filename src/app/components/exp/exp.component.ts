@@ -48,7 +48,7 @@ export class ExpComponent implements OnInit,AfterContentInit {
         },1500);
         setTimeout(()=>{
             this.router.navigate([route]);
-            nav.style.zIndex=0;
+            nav.style.zIndex=2;
         },2500);
       }
     });
