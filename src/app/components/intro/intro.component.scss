@@ -3,6 +3,7 @@
     & > div.flex {
         height: 100%;
     }
+    min-height: calc(100vh - 60px);
     .intro-content {
         // background: red;
         height: fit-content;
@@ -16,6 +17,7 @@
         }
         h4 {
             line-height: 20px;
+            font-weight: 500;
         }
         @media (max-width: 768px) {
             width: 80%;
@@ -28,10 +30,10 @@
         margin-right: 2rem;
         min-width: 430px;
         max-width: 556px;
-        animation: init-appear 1s .5s forwards;
-        &:hover .options{
+        animation: init-appear 1s 0.5s forwards;
+        &:hover .options {
             opacity: 1;
-            transform: translate(0,10px);
+            transform: translate(0, 10px);
         }
     }
     .intro-img {
@@ -60,28 +62,32 @@
     .d {
         background-image: url(../../../assets/images/4.png);
         filter: drop-shadow(2px 1px 1px rgba(0, 0, 0, 0.842));
-        transition: all .3s;
+        transition: all 0.3s;
     }
     .e {
         background-image: url(../../../assets/images/5.png);
         filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.842));
-        transition: all .3s;
+        transition: all 0.3s;
     }
     .options {
         opacity: 0;
-        transform: translate(0,0);
+        transform: translate(0, 0);
         height: fit-content;
         margin-top: 10%;
         right: 100px;
-        transition: opacity .5s,transform .7s;
+        transition: opacity 0.5s, transform 0.7s;
         .option {
             transform: scale(1);
             box-shadow: 0px 1px 3px #000000c5;
             border-radius: 50%;
             margin: 10px 0px;
             background: #fefefe8a;
-            transition: transform .3s,box-shadow .3s;
-            &:hover{
+            transition: transform 0.3s, box-shadow 0.3s;
+            img {
+                padding: 4px 7px;
+                box-sizing: border-box;
+            }
+            &:hover {
                 transform: scale(1.1);
                 box-shadow: 1px 1px 3px #000000be;
                 cursor: pointer;
@@ -98,6 +104,9 @@
                 background-position: center 80%;
                 margin: 0;
             }
+            .c{
+               filter:drop-shadow(2px 1px 1px rgba(73, 73, 73, 80%));
+            }
             .col-4 {
                 position: relative;
                 margin-bottom: 0rem;
@@ -105,11 +114,11 @@
                 margin-top: 2rem;
             }
         }
-        .options{
+        .options {
             right: 50px;
         }
     }
-    
+
     @media (max-width: 466px) {
         .flex {
             .intro-img {
@@ -121,9 +130,9 @@
             }
         }
     }
-    @media (max-height:635px){
-        .flex{
-            .intro-img{
+    @media (max-height: 635px) {
+        .flex {
+            .intro-img {
                 background-size: 65vh auto;
             }
         }
@@ -136,7 +145,6 @@
         }
     }
 }
-
 
 // // Small devices (landscape phones, 576px and up)
 // @media (min-width: 576px) { ... }

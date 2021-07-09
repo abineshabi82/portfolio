@@ -44,6 +44,8 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
           nav.style.zIndex=1;
         },300);
         setTimeout(()=>{
+          let container:any=document.querySelector('.intro-container');
+          container.setAttribute("style","min-height:100vh");
           containermain.classList.add('slide-left');
         },800);
         setTimeout(()=>{

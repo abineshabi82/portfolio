@@ -1,6 +1,6 @@
-// * {
-//     border: solid;
-// }
+* {
+    // border:1px solid;
+}
 .work-container {
     background: linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%);
     scroll-snap-type: y proximity;
@@ -11,20 +11,26 @@
         min-height: calc(100vh); // - 60px);
         position: sticky;
         top: calc(0px + 60px);
+        align-items: center;
         .work-img {
             img {
-                width: 14%;
-                max-width: 200px;
+                width: 20%;
+                // max-width: 200px;
                 border-radius: 50%;
                 object-fit: cover;
                 object-position: center;
                 filter: drop-shadow(1px 1px 1px black);
                 margin: 1rem;
+                @media (max-width:576px) {
+                    width: 40%;
+                }
             }
         }
         .work-desc {
+            width: 80%;
             h3 {
                 margin: 1rem;
+                font-weight: 500;
             }
             .work-desc-sub {
                 margin: 5rem 0;
@@ -175,9 +181,10 @@
             }
             .tab {
                 background-image: url(../../../assets/images/workpic/3.png);
-                background-position: 285% center;
-                transform: translateX(+30px) scale(0.9);
+                background-position: 30% center;
+                transform: translateX(30px) scale(0.9);
                 transform-origin: right center;
+                background-size: 150%;
             }
         }
     }
@@ -200,14 +207,23 @@
                     height: 100%;
 
                     background-position: center 10%;
+                    @media (max-width: 576px) {
+                        background-position: center 25%;
+                    }
                 }
                 .lap {
                 }
                 .phone {
                     background-position: 100% 10%;
+                    @media (max-width: 576px) {
+                        background-position: 100% 25%;
+                    }
                 }
                 .tab {
                     background-position: 280% 10%;
+                    @media (max-width: 576px) {
+                        background-position: 280% 25%;
+                    }
                 }
             }
             .project-content {
@@ -218,16 +234,30 @@
                 & > * {
                 }
                 h3 {
+                    line-height: 1.3;
+                    max-height: 3rem;
                 }
                 p {
+                    font-size: 1.3rem;
+                    line-height: 1.6;
+                    max-height: 10rem;
                 }
                 .link-items {
+                    max-height: 4rem;
                     .link-item {
+                        max-height: 3rem;
                         img {
                             &:hover {
                             }
                         }
                     }
+                }
+            }
+        }
+        .anime-stream {
+            .project-content {
+                p {
+                    max-height: 12rem;
                 }
             }
         }
@@ -244,6 +274,10 @@
                     transform: translateX(-30px) scale(0.9);
                     transform-origin: center top;
                     min-height: 50%;
+                    @media (max-width: 576px) {
+                        background-size: 120%;
+                        background-position: 15vw 100%;
+                    }
                 }
                 .tab {
                     background-image: url(../../../assets/images/workpic/3.png);
@@ -252,6 +286,10 @@
                     transform: translateX(+30px) scale(0.9);
                     transform-origin: center top;
                     min-height: 50%;
+                    @media (max-width: 576px) {
+                        background-size: 130%;
+                        background-position: 50% 100%;
+                    }
                 }
             }
             .project-content {

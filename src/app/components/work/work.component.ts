@@ -26,8 +26,8 @@ export class WorkComponent implements OnInit, AfterViewInit {
     const rect = element.getBoundingClientRect();
     let windowHeight=(window.innerHeight || document.documentElement.clientHeight);
     //IMPORTANT CALC
-    //  console.log(element,rect.top/2,">="+0,rect.bottom-(windowHeight/2),"<="+windowHeight);
-    return (rect.top/2 >= 0 && rect.left >= 0 && rect.bottom-(windowHeight/2) <= windowHeight && rect.right <= (window.innerWidth || document.documentElement.clientWidth));
+    //  console.log(element,rect.top/2 >= 0,rect.bottom-(windowHeight/2) <= windowHeight);
+    return (rect.top/2 >= 0 && rect.bottom-(windowHeight/2) <= windowHeight);  //&& rect.left >= 0 && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   }
 
   //Image and Content fade in and out
@@ -43,10 +43,12 @@ export class WorkComponent implements OnInit, AfterViewInit {
     let animeStream:any=document.querySelector('.anime-stream');
     let covid:any=document.querySelector('.corona-tracker');
     document.querySelector(".work-container")?.addEventListener('scroll', () => {
+      // debugger;
       let pVal = this.isInViewport(this.portfolio);
       
       let aVal = this.isInViewport(this.anime);
       let cVal = this.isInViewport(this.covid);
+      // console.log(pVal,pFlagOut);
       if (pVal && pFlagOut) {
         console.log("p in");
         pFlagOut = false;
@@ -132,6 +134,8 @@ export class WorkComponent implements OnInit, AfterViewInit {
           nav.style.zIndex=1;
         },300);
         setTimeout(()=>{
+          let container:any =document.querySelector(".work-container");
+          container.setAttribute("style","height: calc(100vh) !important");
           containermain.classList.add('slide-left');
         },800);
         setTimeout(()=>{
