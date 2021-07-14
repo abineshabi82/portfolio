@@ -1,0 +1,132 @@
+* {
+    // border: 1px solid;
+}
+.contact-mail {
+    position: fixed;
+    top: 50%;
+    width: 90vw;
+    height: 95vh;
+    left: 50%;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 7px black;
+    z-index: 3;
+    box-sizing: border-box;
+    transform: translate(-50%, -50%) scaleY(0);
+    transition: transform 0.4s ease-in;
+    & > img {
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 1rem;
+        top: 1rem;
+    }
+    .img-section {
+        box-sizing: border-box;
+        margin: 1rem;
+        width: 50%;
+        height: calc(100% - 2rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .img {
+            height: 300px;
+            background-image: url(../../../assets/images/abi2.webp);
+            background-size: 110%;
+            background-repeat: no-repeat;
+            background-position: center 60%;
+            width: 300px;
+            align-self: center;
+            border-radius: 50%;
+            border: none;
+            box-shadow: 1px 2px 10px black;
+            transform: rotate(-1deg);
+            filter: saturate(0.9);
+            min-height: 300px;
+        }
+        .links {
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                margin: 0.3rem;
+                height: 25px;
+                &:hover {
+                    filter: brightness(3.5) drop-shadow(0px 0px 2px blue);
+                }
+            }
+        }
+    }
+    .contact-form {
+        box-sizing: border-box;
+        margin: 1rem;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 2rem);
+        justify-content: center;
+        h2 {
+            height: fit-content;
+            text-align: center;
+        }
+        form {
+            height: fit-content;
+            div {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin: 2rem;
+                label {
+                    display: block;
+                }
+                input {
+                    display: block;
+                    height: 25px;
+                }
+                input[type="button"] {
+                    background-color: transparent;
+                    border: 2px solid #477dca;
+                    color: #477dca;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.error{
+    border: solid red;
+}
+[disabled]{
+    opacity: .5;
+}
+
+@media (max-width: 768px) {
+    .contact-mail {
+        flex-direction: column;
+        align-items: center;
+        .img-section {
+            .img {
+                width: 180px;
+                height: 180px;
+                min-height: 180px;
+            }
+            .links {
+                display: none;
+            }
+        }
+        .contact-form {
+            width: 80%;
+        }
+    }
+}
+
+@keyframes init-contact {
+    from {
+        transform: translate(-50%, -50%) scaleY(0);
+    }
+    to {
+        transform: translate(-50%, -50%) scaleY(1);
+    }
+}

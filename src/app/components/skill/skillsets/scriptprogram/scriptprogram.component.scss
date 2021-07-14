@@ -9,18 +9,25 @@
 }
 .chart-skills {
     .chart-area {
+        background-image: url(../../../../../assets/images/3dtext/scriptandprogram14.webp);
+        background-size: 125%;
+        // filter: brightness(1.4) hue-rotate(110deg);
+        background-position: center top;
+        background-repeat: no-repeat;
+        // filter: drop-shadow(4px 2px 3px hsl(140,45%,45%));
         .bar {
+            filter: none;
             min-width: 9%;
             margin: 0 3%;
         }
         .html {
-            height: 70%;
+            height: 75%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s;
         }
         .css {
-            height: 90%;
+            height: 95%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s 0.5s;
@@ -32,7 +39,7 @@
             transition: transform 2s 1s;
         }
         .java {
-            height: 50%;
+            height: 58%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s 1.5s;

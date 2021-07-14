@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ContactComponent } from './components/contact/contact.component';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +10,11 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'portfolio';
 
-  constructor(){}
+  enableContact: boolean = false;
+  constructor() { }
+
+  toggleContact() {
+    this.enableContact = !this.enableContact;
+  }
 
 }

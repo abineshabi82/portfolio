@@ -18,6 +18,7 @@ export class UxuiComponent implements OnInit {
       chart.querySelector('.figma').style.transform='scaleY(1)';
       chart.querySelector('.blender2d').style.transform='scaleY(1)';
       chart.querySelector('.blender3d').style.transform='scaleY(1)';
+      chart.querySelector('.photoshop').style.transform='scaleY(1)';
     },4000);
   }
 

@@ -42,7 +42,18 @@ export class WorkComponent implements OnInit, AfterViewInit {
     let portfolio:any=document.querySelector('.portfolio');
     let animeStream:any=document.querySelector('.anime-stream');
     let covid:any=document.querySelector('.corona-tracker');
-    document.querySelector(".work-container")?.addEventListener('scroll', () => {
+    let arrow:any=document.querySelector(".arrow");
+
+    document.querySelector(".work-container")?.addEventListener('scroll', (event:any) => {
+
+      //For arrow
+      if(event.target.scrollTop>200){
+        arrow.style.display="none";
+      }
+      else{
+        arrow.style.display="block";
+      }
+
       // debugger;
       let pVal = this.isInViewport(this.portfolio);
       
@@ -119,11 +130,11 @@ export class WorkComponent implements OnInit, AfterViewInit {
         let route=x.url.slice(1);
         let body:any=document.querySelector('body');
         if(route=="exp"){
-          body.style.background="linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
+          body.style.background="#fff38b";//"linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
         }else if(route=="intro"){
-          body.style.background="linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
+          body.style.background="hsl(215deg 65% 79%)";//"linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
         }else if(route=="skill"){
-          body.style.background="linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
+          body.style.background="hsl(120deg 76% 84%)";//"linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
         }
         this.router.navigate(['work']);
         let containermain:any=document.querySelector('.work-container');

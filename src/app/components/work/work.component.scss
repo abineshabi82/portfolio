@@ -2,7 +2,7 @@
     // border:1px solid;
 }
 .work-container {
-    background: linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%);
+    background: hsl(6deg 88% 75%); //linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%);
     scroll-snap-type: y proximity;
     overflow-y: scroll;
     transform-origin: left top;
@@ -21,7 +21,7 @@
                 object-position: center;
                 filter: drop-shadow(1px 1px 1px black);
                 margin: 1rem;
-                @media (max-width:576px) {
+                @media (max-width: 576px) {
                     width: 40%;
                 }
             }
@@ -31,9 +31,39 @@
             h3 {
                 margin: 1rem;
                 font-weight: 500;
+                text-align: center;
             }
             .work-desc-sub {
-                margin: 5rem 0;
+                margin: 1rem 0;
+                width: 100%;
+                div {
+                    display: flex;
+                    div{
+                    width: fit-content;
+                    margin: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    }
+                    img{
+                        width: 85px;
+                        height: auto;
+                        filter:drop-shadow(1px 1px 1px black);
+                        @media (max-width: 576px) {
+                        width: 80px;
+                        }
+                        @media (max-width: 320px) {
+                        width: 70px;
+                        }
+                    }
+                    a {
+                        margin: 1rem 1rem;
+                        text-underline-offset: 1px;
+                        text-decoration-line: revert;
+                        // text-decoration-color: saddlebrown;
+                        text-decoration-thickness: 2px;
+                    }
+                }
             }
         }
     }
@@ -59,13 +89,13 @@
                 background-position: center center;
             }
             .lap {
-                background-image: url(../../../assets/images/workpic/2.png);
+                // background-image: url(../../../assets/images/workpic/2.png);
             }
             .phone {
-                background-image: url(../../../assets/images/workpic/1.png);
+                // background-image: url(../../../assets/images/workpic/1.png);
             }
             .tab {
-                background-image: url(../../../assets/images/workpic/3.png);
+                // background-image: url(../../../assets/images/workpic/3.png);
                 background-position: 285% center;
             }
         }
@@ -78,7 +108,7 @@
             transition: all 1.5s 0.5s;
             & > * {
                 margin: 0 1rem;
-                margin-bottom: 2rem;
+                margin-bottom: 0.2rem;
                 line-height: 2;
             }
             h3 {
@@ -87,6 +117,7 @@
             p {
                 font-size: 1rem;
                 line-height: 1.6;
+                height: fit-content;
             }
             .link-items {
                 margin-left: 0;
@@ -106,23 +137,23 @@
         }
     }
     .portfolio {
-        background-color: skyblue;
+        background-color: hsl(215deg 65% 79%);
         .project-img-section {
             .project-img {
                 opacity: 0;
                 transition: all 2s 0.5s;
             }
             .lap {
-                background-image: url(../../../assets/images/workpic/portfolio2.png);
+                background-image: url(../../../assets/images/workpic/portfolio2.webp);
                 transform: translateY(-50px) scale(0.9);
             }
             .phone {
-                background-image: url(../../../assets/images/workpic/1.png);
+                background-image: url(../../../assets/images/workpic/portfolio11.webp);
                 transform: translateX(-30px) scale(0.9);
                 transform-origin: left center;
             }
             .tab {
-                background-image: url(../../../assets/images/workpic/3.png);
+                background-image: url(../../../assets/images/workpic/portfolio3.webp);
                 background-position: 285% center;
                 transform: translateX(+30px) scale(0.9);
                 transform-origin: right center;
@@ -130,23 +161,23 @@
         }
     }
     .anime-stream {
-        background-color: salmon;
+        background-color: hsl(6deg 88% 75%);
         .project-img-section {
             .project-img {
                 opacity: 0;
                 transition: all 2s 0.5s;
             }
             .lap {
-                background-image: url(../../../assets/images/workpic/portfolio2.png);
+                background-image: url(../../../assets/images/workpic/anime2.webp);
                 transform: translateY(-50px) scale(0.9);
             }
             .phone {
-                background-image: url(../../../assets/images/workpic/1.png);
+                background-image: url(../../../assets/images/workpic/anime1.webp);
                 transform: translateX(-30px) scale(0.9);
                 transform-origin: left center;
             }
             .tab {
-                background-image: url(../../../assets/images/workpic/3.png);
+                background-image: url(../../../assets/images/workpic/anime3.webp);
                 background-position: 285% center;
                 transform: translateX(+30px) scale(0.9);
                 transform-origin: right center;
@@ -166,21 +197,21 @@
         }
     }
     .corona-tracker {
-        background-color: skyblue;
+        background-color: hsl(215deg 65% 79%);
         .project-img-section {
             .project-img {
                 opacity: 0;
                 transition: all 2s 0.5s;
             }
             .phone {
-                background-image: url(../../../assets/images/workpic/1.png);
+                background-image: url(../../../assets/images/workpic/covid1.webp);
                 background-size: 120%;
                 background-position: -100% center;
                 transform: translateX(-30px) scale(0.9);
                 transform-origin: center;
             }
             .tab {
-                background-image: url(../../../assets/images/workpic/3.png);
+                background-image: url(../../../assets/images/workpic/covid2.webp);
                 background-position: 30% center;
                 transform: translateX(30px) scale(0.9);
                 transform-origin: right center;
@@ -188,6 +219,50 @@
             }
         }
     }
+
+    .arrow {
+        position: fixed;
+        bottom: 1rem;
+        height: fit-content;
+        width: 100%;
+        img {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: auto;
+            filter: drop-shadow(2px 1px 1px black) drop-shadow(-1px 1px 1px black);
+            animation: arrow 2s infinite ease-in;
+            @media (max-width:576px) {
+                width: 20px;
+            }
+        }
+    }
+
+}
+
+@keyframes arrow {
+    from{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    70%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    93%{
+        transform: translateY(15px);
+        opacity: 0;
+    }
+    95%{
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    
 }
 
 @media (max-width: 768px) {
@@ -240,7 +315,7 @@
                 p {
                     font-size: 1.3rem;
                     line-height: 1.6;
-                    max-height: 10rem;
+                    // max-height: 10rem;
                 }
                 .link-items {
                     max-height: 4rem;
@@ -257,7 +332,7 @@
         .anime-stream {
             .project-content {
                 p {
-                    max-height: 12rem;
+                    // max-height: 12rem;
                 }
             }
         }
@@ -268,7 +343,7 @@
                 // border: solid red;
                 height: 50%;
                 .phone {
-                    background-image: url(../../../assets/images/workpic/1.png);
+                    background-image: url(../../../assets/images/workpic/covid1.webp);
                     background-size: 100%;
                     background-position: 20vw 100%;
                     transform: translateX(-30px) scale(0.9);
@@ -280,7 +355,7 @@
                     }
                 }
                 .tab {
-                    background-image: url(../../../assets/images/workpic/3.png);
+                    background-image: url(../../../assets/images/workpic/covid2.webp);
                     background-size: 110%;
                     background-position: 50% center;
                     transform: translateX(+30px) scale(0.9);

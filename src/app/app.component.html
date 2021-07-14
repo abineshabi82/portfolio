@@ -22,14 +22,15 @@
     </span>
   </div>
   <router-outlet></router-outlet>
+  <app-contact (toggleContacts)="toggleContact()" [enableContact]="enableContact"></app-contact>
   <div class="footer absolute">
     <div class="contact">
       <span class="text">Contact</span>
       <span class="social">
-        <span class="lin"><img src="assets/images/linkedin.png" width="25px" style="height: auto;" alt="linkedin"></span>
-        <span class="dribbble"><img src="assets/images/dribbble.png" width="25px" style="height: auto;" alt="dribbble"></span>
-        <span class="github"><img src="assets/images/github.png" width="25px" style="height: auto;" alt="github"></span>
-        <span class="gmail"><img src="assets/images/gmail.png" width="25px" style="height: auto;" alt="gmail"></span>
+        <span class="lin"><a href="https://in.linkedin.com/in/abinesh-janarthanan-6bb746154" target="linkedin"><img src="assets/images/linkedin.png" width="25px" style="height: auto;" alt="linkedin"></a></span>
+        <span class="dribbble"><a href="https://dribbble.com/abinesh_j" target="dribbble"><img src="assets/images/dribbble.png" width="25px" style="height: auto;" alt="dribbble"></a></span>
+        <span class="github"><a href="https://github.com/abineshabi82" target="github"><img src="assets/images/github.png" width="25px" style="height: auto;" alt="github"></a></span>
+        <span class="gmail"><img src="assets/images/gmail.png" width="25px" (click)="toggleContact()" style="height: auto;" alt="gmail"></span>
       </span>
     </div>
   </div>

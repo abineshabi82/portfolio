@@ -1,7 +1,7 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/utility";
 .skill-container {
-    background: linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%);
+    background: hsl(120deg 76% 84%);//linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%);
     // border: solid;
     background-attachment: fixed;
     // * {
@@ -28,47 +28,47 @@
         }
         .head {
             opacity: 0;
-            background: url(../../../assets/images/hammerart/head.png);
+            background: url(../../../assets/images/hammerart/head.webp);
             transform-origin: center 30%;
             // animation: init-char-appear 1s .8s forwards;
         }
         .dress {
             opacity: 0;
-            background: url(../../../assets/images/hammerart/dress.png);
+            background: url(../../../assets/images/hammerart/dress.webp);
             // animation: init-char-appear 1s .8s forwards;
         }
         .pant {
             opacity: 0;
-            background: url(../../../assets/images/hammerart/pant.png);
+            background: url(../../../assets/images/hammerart/pant.webp);
             // animation: init-char-appear 1s .8s forwards;
         }
         .lhand {
-            background: url(../../../assets/images/hammerart/lhand.png);
+            background: url(../../../assets/images/hammerart/lhand.webp);
             transform-origin: 47% 35%;
             opacity: 0;
             // animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
         }
         .rhand {
-            background: url(../../../assets/images/hammerart/rhand.png);
+            background: url(../../../assets/images/hammerart/rhand.webp);
             transform-origin: 47% 35%;
             opacity: 0;
             // animation: init-char-appear 1s .8s forwards, hit-target ease-in 2s 2.1s forwards;
         }
         .hammer {
-            background: url(../../../assets/images/hammerart/hammer.png);
+            background: url(../../../assets/images/hammerart/hammer.webp);
             transform-origin: 47% 35%;
             transform: translate(-45%, 5%) rotateZ(50deg) scale(2);
             // animation: hammer 2s forwards, hit-target ease-in 2s 2.1s forwards;
         }
         .hittertop {
             opacity: 0;
-            background: url(../../../assets/images/hammerart/hittertop.png);
+            background: url(../../../assets/images/hammerart/hittertop.webp);
             transform: translateX(10px);
             // animation: hitterappear 1s .8s forwards, hittertop 1s 4s linear forwards;
         }
         .hitterbottom {
             opacity: 0;
-            background: url(../../../assets/images/hammerart/hitterbottom.png);
+            background: url(../../../assets/images/hammerart/hitterbottom.webp);
             transform: translateX(10px);
             filter: drop-shadow(0px 3px 3px black) !important;
             // animation: hitterappear 1s .8s forwards;
@@ -111,6 +111,7 @@
                 background: transparent;
                 box-shadow: $btn-shadow;
                 font-size: 1rem;
+                font-family: cursive;
                 &:hover {
                     box-shadow: $btn-shadow-active;
                     cursor: pointer;

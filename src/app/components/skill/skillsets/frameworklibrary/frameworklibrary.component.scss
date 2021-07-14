@@ -8,6 +8,11 @@
 }
 .chart-skills{
     .chart-area{
+        background-image: url(../../../../../assets/images/3dtext/frameworkandlibrary.webp);
+        background-size: 100%;
+        // filter: brightness(1.4) hue-rotate(110deg);
+        background-position: center top;
+        background-repeat: no-repeat;
         .bar{
             min-width: 9%;
             margin: 0 3%;
@@ -20,25 +25,25 @@
             }
         }
         .angular {
-            height: 80%;
+            height: 75%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s;
         }
         .react {
-            height: 60%;
+            height: 58%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s 0.5s;
         }
         .node {
-            height: 40%;
+            height: 37%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s 0.5s;
         }
         .spring {
-            height: 55%;
+            height: 58%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s 1s;
@@ -50,7 +55,7 @@
             transition: transform 2s 1s;
         }
         .bootstrap {
-            height: 60%;
+            height: 58%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s 1s;

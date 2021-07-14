@@ -7,24 +7,35 @@
 }
 .chart-skills {
     .chart-area {
+        background-image: url(../../../../../assets/images/3dtext/uxui1.webp);
+        background-size: 100%;
+        // filter: brightness(1.4) hue-rotate(110deg);
+        background-position: center top;
+        background-repeat: no-repeat;
         .bar {
             min-width: 9%;
             margin: 0 3%;
         }
         .figma {
-            height: 45%;
+            height: 58%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s;
         }
         .blender2d {
-            height: 35%;
+            height: 58%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s;
         }
         .blender3d {
-            height: 25%;
+            height: 36%;
+            transform: scaleY(0);
+            transform-origin: center bottom;
+            transition: transform 2s;
+        }
+        .photoshop {
+            height: 17%;
             transform: scaleY(0);
             transform-origin: center bottom;
             transition: transform 2s;

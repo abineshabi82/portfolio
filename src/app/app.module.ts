@@ -11,6 +11,9 @@ import { ScriptprogramComponent } from './components/skill/skillsets/scriptprogr
 import { DefaultComponent } from './components/skill/skillsets/default/default.component';
 import { UxuiComponent } from './components/skill/skillsets/uxui/uxui.component';
 import { FrameworklibraryComponent } from './components/skill/skillsets/frameworklibrary/frameworklibrary.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,14 @@ import { FrameworklibraryComponent } from './components/skill/skillsets/framewor
     ScriptprogramComponent,
     DefaultComponent,
     UxuiComponent,
-    FrameworklibraryComponent
+    FrameworklibraryComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

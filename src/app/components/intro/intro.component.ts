@@ -29,11 +29,11 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
         let route=x.url.slice(1);
         let body:any=document.querySelector('body');
         if(route=="exp"){
-          body.style.background="linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
+          body.style.background="#fff38b";//"linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
         }else if(route=="skill"){
-          body.style.background="linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
+          body.style.background="hsl(120deg 76% 84%)";//"linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
         }else if(route=="work"){
-          body.style.background="linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
+          body.style.background="hsl(6deg 88% 75%)";//"linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
         }
         this.router.navigate(['intro']);
         let containermain:any=document.querySelector('.intro-container');
@@ -102,27 +102,31 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
     el.style.visibility="hidden";
     el.style.opacity="0";
     mustag.style.background="rgb(254 254 254 / 11%)";
-    }
-    else{
+    mustag.querySelector('[alt="cancel"]').style.visibility="hidden";
+  }
+  else{
     el.style.visibility="visible";
     el.style.opacity="1";
     mustag.style.background="#fefefe8a";
-    }
+    mustag.querySelector('[alt="cancel"]').style.visibility="visible";
   }
-  toggleBeard():void{
-    const el:any=document.querySelector('.e');
-    const beard:any=document.querySelector('.beard');
-    if(el.style.visibility=="visible"){
-      el.style.opacity="0";
+}
+toggleBeard():void{
+  const el:any=document.querySelector('.e');
+  const beard:any=document.querySelector('.beard');
+  if(el.style.visibility=="visible"){
+    el.style.opacity="0";
     el.style.visibility="hidden";
     el.style.opacity="0";
     beard.style.background="rgb(254 254 254 / 11%)";
-    }
-    else{
+    beard.querySelector('[alt="cancel"]').style.visibility="hidden";
+  }
+  else{
     el.style.visibility="visible";
     el.style.opacity="1";
     beard.style.background="#fefefe8a";
-    }
+    beard.querySelector('[alt="cancel"]').style.visibility="visible";
+  }
   }
 
 }

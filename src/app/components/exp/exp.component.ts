@@ -39,10 +39,19 @@ export class ExpComponent implements OnInit, AfterContentInit {
     this.java = document.querySelector('.java');
     let cFlagOut = true;
     console.log(this.angular);
-    // let portfolio:any=document.querySelector('.angular');
-    // let animeStream:any=document.querySelector('.react');
-    // let covid:any=document.querySelector('.java');
-    document.querySelector(".exp-container")?.addEventListener('scroll', () => {
+
+    let arrow:any=document.querySelector(".arrow");
+    
+    document.querySelector(".exp-container")?.addEventListener('scroll', (event:any) => {
+
+      //For arrow
+      if(event.target.scrollTop>200){
+        arrow.style.display="none";
+      }
+      else{
+        arrow.style.display="block";
+      }
+
       // debugger;
       let pVal = this.isInViewport(this.angular);
 
@@ -123,11 +132,11 @@ export class ExpComponent implements OnInit, AfterContentInit {
         let route = x.url.slice(1);
         let body: any = document.querySelector('body');
         if (route == "intro") {
-          body.style.background = "linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
+          body.style.background = "hsl(215deg 65% 79%)";//"linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
         } else if (route == "skill") {
-          body.style.background = "linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
+          body.style.background = "hsl(120deg 76% 84%)";//"linear-gradient(180deg, #67cca0 0%, #bcffdc 65%, #67cca0 100%)";
         } else if (route == "work") {
-          body.style.background = "linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
+          body.style.background = "hsl(6deg 88% 75%)";//"linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
         }
         this.router.navigate(['exp']);
         let containermain: any = document.querySelector('.exp-container');

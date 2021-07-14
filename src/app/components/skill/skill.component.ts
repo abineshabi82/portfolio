@@ -29,11 +29,11 @@ export class SkillComponent implements OnInit,AfterViewInit {
         let route=x.url.slice(1);
         let body:any=document.querySelector('body');
         if(route=="exp"){
-          body.style.background="linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
+          body.style.background="#fff38b";//"linear-gradient(180deg, #f7e96d 0%, rgba(255, 243, 144, 1) 65%, #f7e96d 100%)";
         }else if(route=="intro"){
-          body.style.background="linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
+          body.style.background="hsl(215deg 65% 79%)";//"linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
         }else if(route=="work"){
-          body.style.background="linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
+          body.style.background="hsl(6deg 88% 75%)";//"linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
         }
         this.router.navigate(['skill']);
         let containermain:any=document.querySelector('.skill-container');

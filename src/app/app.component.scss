@@ -22,7 +22,7 @@
                 color: rgb(53, 67, 75);
                 box-shadow: $btn-shadow-active;
             }
-            @media (max-width: 992px) { 
+            @media (max-width: 992px) {
                 font-size: 1.5rem;
             }
             @media (max-width: 576px) {
@@ -30,13 +30,12 @@
                 // margin-left: 0.4rem;
                 // margin-right: 0.4rem;
             }
-            
         }
     }
 
-    router-outlet{
+    router-outlet {
         position: relative;
-        top:0;
+        top: 0;
     }
 
     .footer {
@@ -45,6 +44,9 @@
         width: calc(100% - 100px);
         margin: 20px 50px;
         perspective: 800px;
+        @media (max-width: 576px) {
+            margin: 20px 10px;
+        }
 
         .contact {
             position: relative;
@@ -98,7 +100,7 @@
             }
         }
     }
-    @media (max-width: 768px) { 
+    @media (max-width: 768px) {
         height: 100%;
     }
 }

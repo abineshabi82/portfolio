@@ -1,0 +1,36 @@
+<div class="contact-mail flex">
+    <img src="assets/images/cancel.png" (click)="toggleContact()" alt="cancel" />
+    <div class="img-section">
+        <div class="img">
+
+        </div>
+        <div class="links">
+            <span class="lin"><a href="https://in.linkedin.com/in/abinesh-janarthanan-6bb746154" target="linkedin"><img
+                        src="assets/images/linkedin.png" width="25px" style="height: auto;" alt="linkedin"></a></span>
+            <span class="dribbble"><a href="https://dribbble.com/abinesh_j" target="dribbble"><img
+                        src="assets/images/dribbble.png" width="25px" style="height: auto;" alt="dribbble"></a></span>
+            <span class="github"><a href="https://github.com/abineshabi82" target="github"><img
+                        src="assets/images/github.png" width="25px" style="height: auto;" alt="github"></a></span>
+        </div>
+    </div>
+    <div class="contact-form">
+        <h2>CONTACT</h2>
+        <form action="">
+            <div>
+                <label for="email"> Your E-mail</label>
+                <input type="email" class="form-control" [class.error]="emailInput.invalid && (emailInput.dirty || emailInput.touched)" id="email" name="email" [(ngModel)]="email" #emailInput="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required/>
+            </div>
+            <div>
+                <label for="subject"> Subject</label>
+                <input type="text" class="form-control" [class.error]="subjectInput.invalid && (subjectInput.dirty || subjectInput.touched)" id="subject" name="subject" [(ngModel)]="subject" #subjectInput="ngModel" required minlength="3" />
+            </div>
+            <div>
+                <label for="message"> Message</label>
+                <textarea id="message" cols="30" [class.error]="messageInput.invalid && (messageInput.dirty || messageInput.touched)" rows="10" name="message" class="message"  [(ngModel)]="message" #messageInput="ngModel" required minlength="3" ></textarea>
+            </div>
+            <div>
+                <input type="button" class="form-control"  id="submit" name="submit" (click)="toggleContact();sendMail();" [disabled]="emailInput.invalid || subjectInput.invalid || messageInput.invalid" value="Send" disabled="false"/>
+            </div>
+        </form>
+    </div>
+</div>

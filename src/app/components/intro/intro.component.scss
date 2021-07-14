@@ -1,5 +1,5 @@
 .intro-container {
-    background: linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%);
+    background: hsl(215deg 65% 79%);//linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%);
     & > div.flex {
         height: 100%;
     }
@@ -49,23 +49,23 @@
         max-height: 90%;
     }
     .a {
-        background-image: url(../../../assets/images/1.png);
+        background-image: url(../../../assets/images/1.webp);
     }
     .b {
-        background-image: url(../../../assets/images/2.png);
+        background-image: url(../../../assets/images/2.webp);
         filter: drop-shadow(8px 1px 2px white) drop-shadow(-8px 0px 2px white) brightness(2);
         transform: translate(0px, 0px);
     }
     .c {
-        background-image: url(../../../assets/images/3.png);
+        background-image: url(../../../assets/images/3.webp);
     }
     .d {
-        background-image: url(../../../assets/images/4.png);
+        background-image: url(../../../assets/images/4.webp);
         filter: drop-shadow(2px 1px 1px rgba(0, 0, 0, 0.842));
         transition: all 0.3s;
     }
     .e {
-        background-image: url(../../../assets/images/5.png);
+        background-image: url(../../../assets/images/5.webp);
         filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.842));
         transition: all 0.3s;
     }
@@ -83,6 +83,13 @@
             margin: 10px 0px;
             background: #fefefe8a;
             transition: transform 0.3s, box-shadow 0.3s;
+            [alt="cancel"] {
+                position: absolute;
+                width: 35px;
+                min-height: 30px;
+                right: -8px;
+                top: -10px;
+            }
             img {
                 padding: 4px 7px;
                 box-sizing: border-box;
@@ -104,8 +111,8 @@
                 background-position: center 80%;
                 margin: 0;
             }
-            .c{
-               filter:drop-shadow(2px 1px 1px rgba(73, 73, 73, 80%));
+            .c {
+                filter: drop-shadow(2px 1px 1px rgba(73, 73, 73, 80%));
             }
             .col-4 {
                 position: relative;
