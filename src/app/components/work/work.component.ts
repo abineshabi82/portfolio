@@ -44,15 +44,28 @@ export class WorkComponent implements OnInit, AfterViewInit {
     let covid:any=document.querySelector('.corona-tracker');
     let arrow:any=document.querySelector(".arrow");
 
-    document.querySelector(".work-container")?.addEventListener('scroll', (event:any) => {
+    function debounce(fn:any,time:number){
+      // console.log("de");
+      let timeout:any;
+      return function(...args:any){
+        if(timeout){
+          clearTimeout(timeout);
+        }
+        timeout=setTimeout(()=>{fn(...args);},time);
+      }
+    }
+
+    document.querySelector(".work-container")?.addEventListener('scroll', debounce((event:any) => {
+
+      console.log("hai");
 
       //For arrow
       if(event.target.scrollTop>200){
-        arrow.style.display="none";
+        arrow.style.visibility="hidden";
       }
       else{
-        arrow.style.display="block";
-      }
+        arrow.style.visibility="visible";
+      } 
 
       // debugger;
       let pVal = this.isInViewport(this.portfolio);
@@ -119,7 +132,7 @@ export class WorkComponent implements OnInit, AfterViewInit {
         covid.querySelector('.project-content').setAttribute("style","opacity: 0;transform: translateY(-50px);");
       }
       
-    });
+    },300));
   }
 
   slideLeftDisappear(){

@@ -33,7 +33,7 @@ export class ContactComponent implements OnInit, OnChanges {
   }
 
   async sendMail() {
-    fetch("http://localhost:9000/sendmail", {
+    fetch("/.netlify/functions/sendmail", {
       method: 'POST',
       mode: 'no-cors',
       headers: {

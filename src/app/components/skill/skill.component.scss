@@ -111,7 +111,7 @@
                 background: transparent;
                 box-shadow: $btn-shadow;
                 font-size: 1rem;
-                font-family: cursive;
+                font-family: monospace, sans-serif, Helvetica, Arial;
                 &:hover {
                     box-shadow: $btn-shadow-active;
                     cursor: pointer;

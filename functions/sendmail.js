@@ -28,7 +28,7 @@ exports.handler = async function (event) {
         }
     };
 
-    if (event.headers.origin == 'http://localhost:4200') {
+    if (event.headers.origin == 'https://abineshjanarthanan.netlify.app') {
         try {
             let res = await Email.send({
                 Host: "smtp.gmail.com",

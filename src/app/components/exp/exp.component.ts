@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { debounce } from 'rxjs/operators';
 
 @Component({
   selector: 'app-exp',
@@ -41,16 +42,27 @@ export class ExpComponent implements OnInit, AfterContentInit {
     console.log(this.angular);
 
     let arrow:any=document.querySelector(".arrow");
-    
-    document.querySelector(".exp-container")?.addEventListener('scroll', (event:any) => {
 
+    function debounce(fn:any,time:number){
+      // console.log("de");
+      let timeout:any;
+      return function(...args:any){
+        if(timeout){
+          clearTimeout(timeout);
+        }
+        timeout=setTimeout(()=>{fn(...args);},time);
+      }
+    }
+    
+    document.querySelector(".exp-container")?.addEventListener('scroll',debounce((event:any)=>{
+      console.log("hi");
       //For arrow
       if(event.target.scrollTop>200){
-        arrow.style.display="none";
+        arrow.style.visibility="hidden";
       }
       else{
-        arrow.style.display="block";
-      }
+        arrow.style.visibility="visible";
+      }   
 
       // debugger;
       let pVal = this.isInViewport(this.angular);
@@ -59,7 +71,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
       let cVal = this.isInViewport(this.java);
       // console.log(pVal,pFlagOut);
       if (pVal && pFlagOut) {
-        console.log("p in");
+        console.log("a in");
         pFlagOut = false;
         this.angular.querySelector('.lap').style.transform = "scale(1)";
         this.angular.querySelector('.lap').style.opacity = 1;
@@ -71,7 +83,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.angular.querySelector('.project-content').setAttribute("style", "opacity: 1;transform: translateY(0px);");
       }
       else if (!pVal && !pFlagOut) {
-        console.log("p out");
+        console.log("a out");
         pFlagOut = true;
         this.angular.querySelector('.lap').style.transform = "scale(.9)";
         this.angular.querySelector('.lap').style.opacity = 0;
@@ -83,7 +95,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.angular.querySelector('.project-content').setAttribute("style", "opacity: 0;transform: translateY(-50px);");
       }
       if (aVal && aFlagOut) {
-        console.log("a in");
+        console.log("r in");
         aFlagOut = false;
         this.react.querySelector('.lap').setAttribute("style", "transform: scale(1); opacity: 1;");
         this.react.querySelector('.phone').setAttribute("style", "transform: translateX(0px); opacity: 1;");
@@ -92,7 +104,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.react.querySelector('.project-content').setAttribute("style", "opacity: 1;transform: translateY(0px);");
       }
       else if (!aVal && !aFlagOut) {
-        console.log("a out");
+        console.log("r out");
         aFlagOut = true;
         this.react.querySelector('.lap').setAttribute("style", "transform: scale(.9); opacity: 0;");
         this.react.querySelector('.phone').setAttribute("style", "transform: translateX(-50px); opacity: 0;");
@@ -101,7 +113,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.react.querySelector('.project-content').setAttribute("style", "opacity: 0;transform: translateY(-50px);");
       }
       if (cVal && cFlagOut) {
-        console.log("c in");
+        console.log("j in");
         cFlagOut = false;
         this.java.querySelector('.lap').setAttribute("style", "transform: scale(1); opacity: 1;");
         this.java.querySelector('.phone').setAttribute("style", "transform: translateX(0px); opacity: 1;");
@@ -110,7 +122,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.java.querySelector('.project-content').setAttribute("style", "opacity: 1;transform: translateY(0px);");
       }
       else if (!cVal && !cFlagOut) {
-        console.log("c out");
+        console.log("j out");
         cFlagOut = true;
         this.java.querySelector('.lap').setAttribute("style", "transform: scale(.9); opacity: 0;");
         this.java.querySelector('.phone').setAttribute("style", "transform: translateX(-50px); opacity: 0;");
@@ -119,7 +131,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.java.querySelector('.project-content').setAttribute("style", "opacity: 0;transform: translateY(-50px);");
       }
 
-    });
+    },300));
   }
 
   slideLeftDisappear() {
