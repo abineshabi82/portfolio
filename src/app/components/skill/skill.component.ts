@@ -35,6 +35,7 @@ export class SkillComponent implements OnInit,AfterViewInit {
         }else if(route=="work"){
           body.style.background="hsl(6deg 88% 75%)";//"linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
         }
+
         this.router.navigate(['skill']);
         let containermain:any=document.querySelector('.skill-container');
         let nav:any=document.querySelector('.navbar');
@@ -50,6 +51,8 @@ export class SkillComponent implements OnInit,AfterViewInit {
             this.router.navigate([route]);
             nav.style.zIndex=2;
         },1800);
+
+        
       }
     });
   }

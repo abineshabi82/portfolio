@@ -131,7 +131,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         this.java.querySelector('.project-content').setAttribute("style", "opacity: 0;transform: translateY(-50px);");
       }
 
-    },300));
+    },50));
   }
 
   slideLeftDisappear() {
@@ -143,6 +143,7 @@ export class ExpComponent implements OnInit, AfterContentInit {
         flag = 1;
         let route = x.url.slice(1);
         let body: any = document.querySelector('body');
+        console.log(route);
         if (route == "intro") {
           body.style.background = "hsl(215deg 65% 79%)";//"linear-gradient(180deg, #7bb0c8 0%, #ace5ff 70%, #7bb0c8 99%)";
         } else if (route == "skill") {
@@ -150,24 +151,29 @@ export class ExpComponent implements OnInit, AfterContentInit {
         } else if (route == "work") {
           body.style.background = "hsl(6deg 88% 75%)";//"linear-gradient(180deg, #fd8f8f 0%, #ffb99a 70%, #fd8f8f 99%)";
         }
-        this.router.navigate(['exp']);
-        let containermain: any = document.querySelector('.exp-container');
-        let nav: any = document.querySelector('.navbar');
-        this.expContent.style.animation = "final-disappear .5s ease-in forwards";
-        setTimeout(() => {
-          this.expImg.style.animation = "final-disappear .5s ease-in forwards";
-          nav.style.zIndex = 1;
-        }, 300);
-        setTimeout(() => {
-          let workContainer: any = document.querySelector(".exp-container");
-          workContainer.setAttribute("style","height:calc(100vh + 60px) !important");
-          // debugger;
-          containermain.classList.add('slide-left');
-        }, 1500);
-        setTimeout(() => {
-          this.router.navigate([route]);
-          nav.style.zIndex = 2;
-        }, 2500);
+
+        if(route!="exp"){
+          this.router.navigate(['exp']);
+          let containermain: any = document.querySelector('.exp-container');
+          let nav: any = document.querySelector('.navbar');
+          this.expContent.style.animation = "final-disappear .5s ease-in forwards";
+          setTimeout(() => {
+            this.expImg.style.animation = "final-disappear .5s ease-in forwards";
+            nav.style.zIndex = 1;
+          }, 300);
+          setTimeout(() => {
+            let workContainer: any = document.querySelector(".exp-container");
+            workContainer.setAttribute("style","height:calc(100vh + 60px) !important");
+            // debugger;
+            containermain.classList.add('slide-left');
+          }, 1500);
+          setTimeout(() => {
+            this.router.navigate([route]);
+            nav.style.zIndex = 2;
+          }, 2500);
+        }
+
+
       }
     });
   }
