@@ -18,15 +18,15 @@
         </div>
         <div class="skill-content">
             <div class="chart">
-                <app-default *ngIf="chart=='default'"></app-default>
-                 <app-scriptprogram *ngIf="chart=='scriptprogram'"></app-scriptprogram>
-                 <app-frameworklibrary *ngIf="chart=='frameworklibrary'"></app-frameworklibrary>
-                 <app-uxui *ngIf="chart=='uxui'"></app-uxui>
+                <app-default *ngIf="chart=='default'" ></app-default>
+                 <app-scriptprogram *ngIf="chart=='scriptprogram'" [skillData]="skillData"></app-scriptprogram>
+                 <app-frameworklibrary *ngIf="chart=='frameworklibrary'" [skillData]="skillData"></app-frameworklibrary>
+                 <app-uxui *ngIf="chart=='uxui'" [skillData]="skillData"></app-uxui>
             </div>
             <div class="skillsets">
-                <input class="skill-item" [class.active]="chart=='scriptprogram'" type="button" (click)="changeChart('scriptprogram')" value="Language" />
-                <input class="skill-item" [class.active]="chart=='uxui'" type="button" (click)="changeChart('uxui')" value="UX/UI" />
-                <input class="skill-item" [class.active]="chart=='frameworklibrary'" type="button" (click)="changeChart('frameworklibrary')" value="Technology" />
+                <input class="skill-item" [class.active]="chart=='scriptprogram'" type="button" (click)="changeChart('scriptprogram')" value={{skillData.set[0]}} />
+                <input class="skill-item" [class.active]="chart=='uxui'" type="button" (click)="changeChart('uxui')" value={{skillData.set[1]}} />
+                <input class="skill-item" [class.active]="chart=='frameworklibrary'" type="button" (click)="changeChart('frameworklibrary')" value={{skillData.set[2]}} />
             </div>
         </div>
     </div>

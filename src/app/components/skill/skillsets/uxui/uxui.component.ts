@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-uxui',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./uxui.component.scss']
 })
 export class UxuiComponent implements OnInit {
+
+  @Input("skillData") skillData:any;
 
   constructor() { }
 

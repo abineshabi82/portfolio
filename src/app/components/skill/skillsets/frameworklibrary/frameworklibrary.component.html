@@ -1,9 +1,9 @@
 <div class="skill-level">
-    <div class="level expert"><span>Expert</span></div>
-    <div class="level advance"><span>Advance</span></div>
-    <div class="level intermediate"><span>Intermediate</span></div>
-    <div class="level elementary"><span>Elementary</span></div>
-    <div class="level beginner"><span>Beginner</span></div>
+    <ng-template ngFor let-level [ngForOf]="skillData['skill-level']">
+        <div class="level {{level | lowercase}}">
+            <span>{{level}}</span>
+        </div>
+    </ng-template>
 </div>
 <div class="chart-skills">
    <div class="chart-area">
@@ -15,11 +15,8 @@
     <div class="bar bootstrap"></div>
    </div>
    <div class="skills">
-    <div class="skill">Angular</div>
-    <div class="skill">React JS</div>
-    <div class="skill">Node JS</div>
-    <div class="skill">Spring Boot</div>
-    <div class="skill">SASS</div>
-    <div class="skill">Bootstrap</div>
+    <ng-template ngFor let-tech [ngForOf]="skillData.skillsets.Technology">
+        <div class="skill">{{tech}}</div>
+     </ng-template>
    </div>
 </div>

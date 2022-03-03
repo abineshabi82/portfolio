@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-scriptprogram',
@@ -7,6 +7,8 @@ import { Component, OnInit,AfterViewInit } from '@angular/core';
 })
 export class ScriptprogramComponent implements OnInit,AfterViewInit {
 
+  @Input("skillData") skillData:any;
+  
   constructor() { }
 
   ngOnInit(): void {

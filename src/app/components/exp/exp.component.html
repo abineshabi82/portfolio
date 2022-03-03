@@ -1,11 +1,9 @@
 <div class="exp-container">
     <div class="flex">
         <div class="exp-content flex fx-dir-column fx-jus-center">
-            <h1>Associate Web Developer Virtusa Corporation (05/2019 to Current)</h1>
-            <h4>Took concepts and produced <b>design mockups</b> and <b>prototypes</b> to strengthen designs, enhance <b>user experiences</b>
-                and <b>improve site interactions</b>. And to develope the frontend in the way that was presented in design phase
-                (<a href="exp/#angular">Angular</a>, <a href="exp/#react">React js</a> : 12-2019 to Current)</h4>
-            <h4>I am also trained and deployed as a <b>java web developer</b> (<a href="exp/#java">Spring</a> : 5-2019 to 11-2019)</h4>
+            <h1 [innerHTML]="experienceData['ex-brief'].brief"></h1>
+            <h4 [innerHTML]="experienceData['ex-brief'].description[0]"></h4>
+            <h4 [innerHTML]="experienceData['ex-brief'].description[1]"></h4>
             <!-- <h4><b>Scroll or Tab links</b></h4> -->
         </div>
         <div class="exp-img">
@@ -18,18 +16,29 @@
             <div class="img lap"></div>
         </div>
     </div>
-    <div id="angular" class="project angular">
+
+    <ng-template ngFor let-item [ngForOf]="experienceData['projects']">
+        <div [id]="item.type" class="project {{item.type}}">
+
+            <div class="project-content flex fx-dir-column fx-jus-center fx-align-start">
+                <h3 [innerHTML]="item.brief"></h3>
+                <p [innerHTML]="item.description"></p>
+            </div>
+            <div class="project-img-section">
+                <div class="project-img lap"></div>
+                <div class="project-img phone"></div>
+                <div class="project-img tab"></div>
+            </div>
+
+        </div>
+    </ng-template>
+
+
+    <!-- <div id="angular" class="project angular">
 
         <div class="project-content flex fx-dir-column fx-jus-center fx-align-start">
-            <h3>Angular projects</h3>
-            <p>
-                Developed initial <b>A&E dashbroad poc project</b> (<b>internal production projects analysis application</b>) and
-                carried out for production. Also got client love your work badge.<br />
-                Part of <b>UI developement</b> and <b>test run in armada production project</b> (<b>internal AWS service management
-                application</b>).<br />
-                And also <b>resolved UI related issues</b> apart from my project and also got <b>client appreciation badges</b> from their
-                side.
-            </p>
+            <h3 [innerHTML]="experienceData['projects'][0].brief"></h3>
+            <p [innerHTML]="experienceData['projects'][0].description"></p>
 
         </div>
         <div class="project-img-section">
@@ -41,14 +50,8 @@
     <div id="react" class="project react">
 
         <div class="project-content flex fx-dir-column fx-jus-center fx-align-start">
-            <h3>React project</h3>
-            <p>
-                Developed a ui <b>reusable components</b> for drag and drop nodes with their relationship from entry node to
-                exit
-                node
-                poc project (<b>similar to amazon connect</b>).<br />
-                And also done some <b>personal anime stream poc</b> on react.
-            </p>
+            <h3 [innerHTML]="experienceData['projects'][1].brief"></h3>
+            <p [innerHTML]="experienceData['projects'][1].description"></p>
 
         </div>
         <div class="project-img-section">
@@ -60,21 +63,15 @@
     <div id="java" class="project java">
 
         <div class="project-content flex fx-dir-column fx-jus-center fx-align-start">
-            <h3>Java project</h3>
-            <p>
-                Key player on Developing internal organization <b>Q&A forum trainee poc project</b> using <b>Spring MVC</b> and
-                <b>mysql</b>.<br />
-                Key
-                features are <b>post ranking, automation deletion, re-post, search post and pagination</b>.<br />
-                And also done some <b>poc's on hibernate ORM and spring boot</b> on that time.
-            </p>
+            <h3 [innerHTML]="experienceData['projects'][2].brief"></h3>
+            <p [innerHTML]="experienceData['projects'][2].description"></p>
         </div>
         <div class="project-img-section">
             <div class="project-img lap"></div>
             <div class="project-img phone"></div>
             <div class="project-img tab"></div>
         </div>
-    </div>
+    </div> -->
 
 
 <div class="arrow"><img src="assets/images/arrow.png" alt="arrow" /></div>

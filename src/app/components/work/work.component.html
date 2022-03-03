@@ -4,32 +4,45 @@
             <img src="assets/images/illusration.webp" alt="abinesh" />
         </div>
         <div class="work-desc flex fx-dir-column fx-align-center fx-jus-center">
-            <h3>Here i showcased some of my <b>personel poc works</b> related to my core domain.</h3>
+            <h3 [innerHTML]="workData['work-brief']">
+            </h3>
             <div class="work-desc-sub  flex fx-dir-column fx-align-center fx-jus-center">
                 <div>
-                    <div>
-                        <a href="work/#portfolio"><img src="assets/images/workpic/portfolioicon.png" alt="portfolio"></a>
-                        <a class="link" href="work/#portfolio">Portfolio</a>
-                    </div>
-                    <div>
-                        <a href="work/#anime-stream"> <img src="assets/images/workpic/animeicon.png" alt="anime"></a>
-                        <a class="link" href="work/#anime-stream">Anime Stream</a>
-                    </div>
-                    <div>
-                        <a href="work/#covid"><img src="assets/images/workpic/covidicon.png" alt="covid"></a>
-                        <a class="link" href="work/#covid">Covid Tracker</a>
-                    </div>
+                    <ng-template ngFor let-link [ngForOf]="workData['work-links']">
+                        <div>
+                            <a [href]="link.link" (click)="scrollToTarget($event,link.link)"><img [src]="link.icon" [alt]="link['icon-alt']"></a>
+                            <a class="link" [href]="link.link" (click)="scrollToTarget($event,link.link)">{{link.title}}</a>
+                        </div>
+                    </ng-template>
                 </div>
             </div>
         </div>
     </div>
-    <div id="portfolio" class="project portfolio">
+    <ng-template ngFor let-item [ngForOf]="workData['work-projects']">
+        <div [id]="item.id" class="project {{item.style}}">
+            <div class="project-img-section">
+                <ng-template ngFor let-img [ngForOf]="item.image">
+                    <div class="project-img {{img}}"></div>
+                </ng-template>
+            </div>
+            <div class="project-content flex fx-dir-column fx-jus-center fx-align-start">
+                <h3 [innerHTML]="item.title"></h3>
+                <p [innerHTML]="item.description"></p>
+                <div class="link-items flex fx-jus-end">
+                    <ng-template ngFor let-link [ngForOf]="item.links">
+                        <span class="link-item">
+                            <a [href]="link.link" [target]="link.target">
+                                <img [src]="link.image" [alt]="link['alt-image']" />
+                            </a>
+                        </span>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <!-- <div id="portfolio" class="project portfolio">
         <div class="project-img-section">
             <div class="project-img lap video">
-                <!-- <video autoplay muted loop id="myVideo">
-                    <source src="assets/video/VID_20210525_205412.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                  </video> -->
             </div>
             <div class="project-img phone"></div>
             <div class="project-img tab"></div>
@@ -50,9 +63,6 @@
                 <span class="link-item">
                     <a href="" target="portfolio-link"><img src="assets/images/link.png" alt="link" /></a>
                 </span>
-                <!-- <span class="link-item">
-                    <a href=""><img src="assets/images/resource.png" alt="resource" /></a>
-                </span> -->
             </div>
         </div>
     </div>
@@ -60,10 +70,6 @@
     <div id="anime-stream" class="project anime-stream">
         <div class="project-img-section">
             <div class="project-img lap video">
-                <!-- <video autoplay muted loop id="myVideo">
-                    <source src="assets/video/VID_20210525_205412.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                  </video> -->
             </div>
             <div class="project-img phone"></div>
             <div class="project-img tab"></div>
@@ -84,9 +90,6 @@
                 <span class="link-item">
                     <a href="https://animestream-okta.stackblitz.io/" target="animestream-link"><img src="assets/images/link.png" alt="link" /></a>
                 </span>
-                <!-- <span class="link-item">
-                    <a href=""><img src="assets/images/resource.png" alt="resource" /></a>
-                </span> -->
             </div>
         </div>
     </div>
@@ -110,12 +113,9 @@
                 <span class="link-item">
                     <a href="https://coviddemo.stackblitz.io" target="covid-link"><img src="assets/images/link.png" alt="link" /></a>
                 </span>
-                <!-- <span class="link-item">
-                    <a href=""><img src="assets/images/resource.png" alt="resource" /></a>
-                </span> -->
             </div>
         </div>
-    </div>
+    </div> -->
 
     <div class="arrow">
         <img src="assets/images/arrow.png" alt="arrow" />

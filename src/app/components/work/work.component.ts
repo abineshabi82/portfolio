@@ -1,6 +1,8 @@
+import { ViewportScroller } from '@angular/common';
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { DataAccessService } from 'src/app/service/data-access.service';
 
 @Component({
   selector: 'app-work',
@@ -14,12 +16,25 @@ export class WorkComponent implements OnInit, AfterViewInit {
   private portfolio: any;
   private anime: any;
   private covid: any;
-  constructor(public router: Router) {
+
+  public workData:any=null;
+  constructor(public router: Router,private dataService:DataAccessService,private scroller:ViewportScroller) {
   }
 
   ngOnInit(): void {
-    this.workContent = document.querySelector('.work-container .work-desc');
-    this.workImg = document.querySelector('.work-container .work-img');
+    this.dataService.getWork().subscribe(res=>{
+      this.workData=res;
+      console.log(res)
+    },
+    err=>{
+      console.log('error '+err)
+    },
+    ()=>{
+      this.workContent = document.querySelector('.work-container .work-desc');
+      this.workImg = document.querySelector('.work-container .work-img');
+      console.log("completed");
+    });
+
   }
 
   isInViewport(element: any) {
@@ -178,5 +193,15 @@ export class WorkComponent implements OnInit, AfterViewInit {
     this.fadeInOut();
   }
 
+  scrollToTarget(event:any,target:any){
+    event.preventDefault();
+    // this.scroller.scrollToAnchor(target)
+    // this.router.navigate([],{fragment:target});
+    document.getElementById(target)?.scrollIntoView({
+      behavior:"smooth",
+      block:"start",
+      inline:"nearest"
+    })
+  }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ScriptprogramComponent } from './skillsets/scriptprogram/scriptprogram.component';
 import { FrameworklibraryComponent } from './skillsets/frameworklibrary/frameworklibrary.component';
 import { NavigationStart, Router } from '@angular/router';
+import { DataAccessService } from 'src/app/service/data-access.service';
 
 @Component({
   selector: 'app-skill',
@@ -12,12 +13,26 @@ export class SkillComponent implements OnInit,AfterViewInit {
   private skillContent:any=null;
   private skillImg:any=null;
   public chart: any = "default";
-  constructor(public router:Router) {
+
+  public skillData:any=null;
+
+  constructor(public router:Router,private dataService:DataAccessService) {
   }
 
   ngOnInit(): void {
-    this.skillContent=document.querySelector('.skill-container .skill-content');
-    this.skillImg=document.querySelector('.skill-container .skill-image');
+    this.dataService.getSkill().subscribe(res=>{
+      this.skillData=res;
+      console.log(res)
+    },
+    err=>{
+      console.log('error '+err)
+    },
+    ()=>{
+      this.skillContent=document.querySelector('.skill-container .skill-content');
+      this.skillImg=document.querySelector('.skill-container .skill-image');
+      console.log("completed")
+    }
+    )
   }
 
   ngAfterViewInit(){

@@ -1,12 +1,13 @@
 <div class="intro-container">
     <div class="flex fx-jus-center fx-align-center">
         <div class="intro-content col-6">
-            <h1>
-                Hi, I’m Abinesh
-                a Design Driven Web Developer.
+            <h1 [innerHTML]="profileData.brief">
+                <!-- Hi, I’m Abinesh
+                a Design Driven Web Developer. -->
             </h1>
-            <h4>
-                <b>Design</b> and <b>results-driven</b> Web Developer dedicated to <b>building and optimizing user-focused websites</b> for clients with various business objectives.
+            <h4 [innerHTML]="profileData.description">
+                
+                <!-- <b>Design</b> and <b>results-driven</b> Web Developer dedicated to <b>building and optimizing user-focused websites</b> for clients with various business objectives. -->
                 <!-- I’m also a front-end developer and general doodler with a keen eye for creating engaging UI, bringing products to life. -->
             </h4>
         </div>

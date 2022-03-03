@@ -1,6 +1,7 @@
 import { Component, OnInit,AfterViewInit,OnDestroy } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { debounceTime ,filter} from 'rxjs/operators';
+import { DataAccessService } from 'src/app/service/data-access.service';
 
 @Component({
   selector: 'app-intro',
@@ -13,11 +14,26 @@ export class IntroComponent implements OnInit,AfterViewInit,OnDestroy {
   private introContent:any=null;
   private introImg:any=null;
 
-  constructor(public router:Router) { }
+  public profileData:any=null;
+
+  constructor(public router:Router, private dataService:DataAccessService) { }
 
   ngOnInit(): void {
     this.introContent=document.querySelector('.intro-container .intro-content');
     this.introImg=document.querySelector('.intro-container .col-4');
+
+    //data service access for intro profile
+    this.dataService.getProfile().subscribe(res=>{
+      this.profileData=res;
+      console.log(res)
+    },
+    err=>{
+      console.log('error '+err)
+    },
+    ()=>{
+      console.log("completed")
+    }
+    )
   }
 
   ngAfterViewInit(){      

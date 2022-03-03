@@ -1,24 +1,40 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { debounce } from 'rxjs/operators';
+import { DataAccessService } from 'src/app/service/data-access.service';
 
 @Component({
   selector: 'app-exp',
   templateUrl: './exp.component.html',
   styleUrls: ['./exp.component.scss']
 })
-export class ExpComponent implements OnInit, AfterContentInit {
+export class ExpComponent implements OnInit, AfterViewInit {
   private expContent: any = null;
   private expImg: any = null;
 
   private angular: any;
   private react: any;
   private java: any;
-  constructor(private router: Router) { }
+
+  public experienceData:any=null;
+  constructor(private router: Router,private dataService:DataAccessService) { }
 
   ngOnInit(): void {
-    this.expContent = document.querySelector('.exp-content');
-    this.expImg = document.querySelector('.exp-img');
+    
+    //to access experience data
+    this.dataService.getExperience().subscribe(res=>{
+      this.experienceData=res;
+      console.log(this.experienceData['ex-brief'].brief)
+    },
+    err=>{
+      console.log('error '+err)
+    },
+    ()=>{
+      this.expContent = document.querySelector('.exp-content');
+      this.expImg = document.querySelector('.exp-img');
+      console.log("completed")
+    }
+    )
   }
 
 
@@ -178,9 +194,21 @@ export class ExpComponent implements OnInit, AfterContentInit {
     });
   }
 
-  ngAfterContentInit() {
+  ngAfterViewInit() {
     this.slideLeftDisappear();
     this.fadeInOut();
+
+    document.querySelectorAll(".exp-content h4 a").forEach(tag=>{
+      tag.addEventListener("click",(event:any)=>{
+        event.preventDefault();
+        console.log(event,event?.target?.attributes?.href?.value);
+        document.getElementById(event?.target?.attributes?.href?.value)?.scrollIntoView({
+          behavior:"smooth",
+          block:"start",
+          inline:"nearest"
+        })
+      })
+    })
   }
 
 }
