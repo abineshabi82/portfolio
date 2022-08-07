@@ -2,6 +2,7 @@ import { ViewportScroller } from '@angular/common';
 import { RecursiveTemplateAstVisitor } from '@angular/compiler';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { retry } from 'rxjs/operators';
 import { DataAccessService } from 'src/app/service/data-access.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class WorkComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getWork().subscribe(res=>{
+    this.dataService.getWork().pipe(retry(3)).subscribe(res=>{
+      this.dataService.loader.next(true);
       this.workData=res;
       console.log(res)
     },
@@ -30,6 +32,9 @@ export class WorkComponent implements OnInit, AfterViewInit {
       console.log('error '+err)
     },
     ()=>{
+      setTimeout(()=>{
+        this.dataService.loader.next(false);
+      },1000);
       this.workContent = document.querySelector('.work-container .work-desc');
       this.workImg = document.querySelector('.work-container .work-img');
       console.log("completed");
