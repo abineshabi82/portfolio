@@ -19,6 +19,7 @@ export class ContactComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
   }
+
   ngOnChanges() {
     let element: any = document.querySelector(".contact-mail");
     if (this.enableContact) {
@@ -28,23 +29,25 @@ export class ContactComponent implements OnInit, OnChanges {
       element.style.transform = "translate(-50%,-50%) scaleY(0)";
     }
   }
+
   toggleContact() {
     this.toggleContacts.emit();
   }
 
   async sendMail() {
-    fetch("/.netlify/functions/sendmail", {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        "id": this.email,
-        "subject": this.subject,
-        "message": this.message
-      })
-    }).then(res => { alert("I received your mail. Please expect delay in response");}).catch((error) => alert(error));
+    window.open(`mailto:abineshabi82@gmail.com?subject=From ${this.email} Sub${this.subject}&body=${this.message}`,'new');
+    // fetch("/.netlify/functions/sendmail", {
+    //   method: 'POST',
+    //   mode: 'no-cors',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     "id": this.email,
+    //     "subject": this.subject,
+    //     "message": this.message
+    //   })
+    // }).then(res => { alert("I received your mail. Please expect delay in response");}).catch((error) => alert(error));
   }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterContentInit, AfterViewInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
-import { debounce } from 'rxjs/operators';
+import { debounce, retry } from 'rxjs/operators';
 import { DataAccessService } from 'src/app/service/data-access.service';
 
 @Component({
@@ -22,7 +22,8 @@ export class ExpComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     
     //to access experience data
-    this.dataService.getExperience().subscribe(res=>{
+    this.dataService.getExperience().pipe(retry(3)).subscribe(res=>{
+      this.dataService.loader.next(true);
       this.experienceData=res;
       console.log(this.experienceData['ex-brief'].brief)
     },
@@ -30,6 +31,9 @@ export class ExpComponent implements OnInit, AfterViewInit {
       console.log('error '+err)
     },
     ()=>{
+      setTimeout(()=>{
+        this.dataService.loader.next(false);
+      },1000);
       this.expContent = document.querySelector('.exp-content');
       this.expImg = document.querySelector('.exp-img');
       console.log("completed")

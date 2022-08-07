@@ -3,6 +3,7 @@ import { ScriptprogramComponent } from './skillsets/scriptprogram/scriptprogram.
 import { FrameworklibraryComponent } from './skillsets/frameworklibrary/frameworklibrary.component';
 import { NavigationStart, Router } from '@angular/router';
 import { DataAccessService } from 'src/app/service/data-access.service';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-skill',
@@ -20,7 +21,8 @@ export class SkillComponent implements OnInit,AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getSkill().subscribe(res=>{
+    this.dataService.getSkill().pipe(retry(3)).subscribe(res=>{
+      this.dataService.loader.next(true);
       this.skillData=res;
       console.log(res)
     },
@@ -28,6 +30,9 @@ export class SkillComponent implements OnInit,AfterViewInit {
       console.log('error '+err)
     },
     ()=>{
+      setTimeout(()=>{
+        this.dataService.loader.next(false);
+      },1000);
       this.skillContent=document.querySelector('.skill-container .skill-content');
       this.skillImg=document.querySelector('.skill-container .skill-image');
       console.log("completed")
